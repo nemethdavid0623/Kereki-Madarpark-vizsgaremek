@@ -47,36 +47,25 @@ class AnimalController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-
             'SpeciesName' => 'required|string',
             'Quantity' => 'required|numeric',
             'ForSaleQuantity' => 'required|numeric|min:0',
             'Description' => 'required|string',
             'More' => 'required|string',
             'SpeciesID' => 'required|numeric',
-
+            // Opcionális: Validálhatod a képeket is a tömbben
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
         ], [
             'SpeciesName.required' => 'Fajnév megadása kötelező',
-            'SpeciesName.string' => 'Hibás formátum',
-
             'Quantity.required' => 'A mennyiség megadása kötelező',
-            'Quantity.numeric' => 'A mennyiség csak szám lehet',
-
             'ForSaleQuantity.required' => 'Az eladásra szánt mennyiség megadása kötelező',
-            'ForSaleQuantity.numeric' => 'Az eladásra szánt mennyiség csak szám lehet',
-            'ForSaleQuantity.min' => 'Az eladásra szánt mennyiség nem lehet negatív',
-
             'Description.required' => 'A leírás megadása kötelező',
-            'Description.string' => 'A leírás formátuma hibás',
             'More.required' => 'A leírás megadása kötelező',
-            'More.string' => 'A leírás formátuma hibás',
-
             'SpeciesID.required' => 'A faj azonosító megadása kötelező',
-            'SpeciesID.numeric' => 'A faj azonosító csak szám lehet'
-
         ]);
+
         if ($validator->fails()) {
-            return response()->json(["success" => false, "message" => "Hiba a hozzáadaás során!", $validator->errors()->toArray()], 400);
+            return response()->json(["success" => false, "message" => "Hiba a hozzáadás során!", "errors" => $validator->errors()->toArray()], 400);
         }
 
         $NewRecord = new Animal();
@@ -86,24 +75,25 @@ class AnimalController extends Controller
         $NewRecord->Description = $request->Description;
         $NewRecord->More = $request->More;
         $NewRecord->SpeciesID = $request->SpeciesID;
-
         $NewRecord->save();
 
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $fileName = time() . '_' . $file->getClientOriginalName();
+        // TÖBB KÉP KEZELÉSE
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $file) {
+                $fileName = time() . '_' . $file->getClientOriginalName();
 
-            // Mentés
-            $file->storeAs('uploads', $fileName, 'public');
+                // Mentés a storage/app/public/uploads mappába
+                $file->storeAs('uploads', $fileName, 'public');
 
-            // Kép rekord létrehozása
-            Image::create([
-                'ImageData' => $fileName,
-                'AnimalID'  => $NewRecord->ID // Fontos: nagybetűs ID
-            ]);
+                // Minden egyes képhez külön rekord az Image táblában
+                Image::create([
+                    'ImageData' => $fileName,
+                    'AnimalID'  => $NewRecord->ID // Vagy $NewRecord->id, attól függ mi a PK
+                ]);
+            }
         }
 
-        return response()->json(["success" => true, "data" => $NewRecord], 201);
+        return response()->json(["success" => true, "data" => $NewRecord->load('images')], 201);
     }
 
     /**
@@ -132,7 +122,7 @@ class AnimalController extends Controller
             return response()->json(["success" => false, "message" => "Az állat nem található!"], 404);
         }
 
-        // 1. Validáció (a kép most opcionális: 'nullable')
+        // 1. Validáció (figyelj az 'images.*' formátumra a tömb miatt!)
         $validator = Validator::make($request->all(), [
             'SpeciesName'     => 'required|string',
             'Quantity'        => 'required|numeric',
@@ -140,11 +130,10 @@ class AnimalController extends Controller
             'Description'     => 'required|string',
             'More'            => 'required|string',
             'SpeciesID'       => 'required|numeric',
-            'image'           => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'images.*'        => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ], [
-            // ... a korábbi magyar hibaüzeneteid ...
-            'image.image' => 'A fájl csak kép lehet!',
-            'image.max'   => 'A kép mérete nem lehet több 2MB-nál!'
+            'images.*.image' => 'A fájlok csak képek lehetnek!',
+            'images.*.max'   => 'Egy kép mérete sem lehet több 2MB-nál!'
         ]);
 
         if ($validator->fails()) {
@@ -161,28 +150,27 @@ class AnimalController extends Controller
             'SpeciesID'
         ]));
 
-        // 3. Képkezelés (Csak ha küldtek új képet)
-        if ($request->hasFile('image')) {
-            $imageRecord = Image::where('AnimalID', $id)->first();
+        // 3. TÖBB ÚJ KÉP HOZZÁADÁSA (Csak ha küldtek újakat)
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $file) {
+                $fileName = time() . '_' . $file->getClientOriginalName();
 
-            // Régi kép törlése a mappából, ha létezik
-            if ($imageRecord && Storage::disk('public')->exists('uploads/' . $imageRecord->ImageData)) {
-                Storage::disk('public')->delete('uploads/' . $imageRecord->ImageData);
+                // Mentés a storage mappába
+                $file->storeAs('uploads', $fileName, 'public');
+
+                // Új rekord létrehozása (NEM felülírás, hanem hozzáadás a galériához)
+                Image::create([
+                    'AnimalID' => $id,
+                    'ImageData' => $fileName
+                ]);
             }
-
-            // Új kép mentése
-            $file = $request->file('image');
-            $fileName = time() . '_' . $file->getClientOriginalName();
-            $file->storeAs('uploads', $fileName, 'public');
-
-            // Adatbázis rekord frissítése vagy létrehozása
-            Image::updateOrCreate(
-                ['AnimalID' => $id],
-                ['ImageData' => $fileName]
-            );
         }
 
-        return response()->json(["success" => true, "message" => "Minden sikeresen frissítve!"], 200);
+        return response()->json([
+            "success" => true,
+            "message" => "Minden sikeresen frissítve!",
+            "data" => $animal->load('images') // Frissített adatok visszaadása
+        ], 200);
     }
 
     /**

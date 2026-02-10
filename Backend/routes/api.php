@@ -16,4 +16,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::match(['post', 'put'], '/UpdateAnimal/{id}', [AnimalController::class, 'update']);
     Route::post('/NewAnimal', [AnimalController::class, "store"]);
     Route::delete('/DeleteAnimal/{id}', [AnimalController::class, "destroy"]);
+    Route::delete('/DeleteImage/{id}', [ImageController::class, 'destroy']);
 });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
@@ -98,8 +99,22 @@ class ImageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Image $image)
+    public function destroy($id)
     {
-        //
+        $image = Image::find($id);
+
+        if ($image) {
+            // 1. Törlés a mappából
+            if (Storage::disk('public')->exists('uploads/' . $image->ImageData)) {
+                Storage::disk('public')->delete('uploads/' . $image->ImageData);
+            }
+
+            // 2. Törlés az adatbázisból
+            $image->delete();
+
+            return response()->json(["success" => true, "message" => "Kép törölve!"], 200);
+        }
+
+        return response()->json(["success" => false, "message" => "Kép nem található!"], 404);
     }
 }
