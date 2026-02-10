@@ -89,6 +89,20 @@ class AnimalController extends Controller
 
         $NewRecord->save();
 
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+
+            // Mentés
+            $file->storeAs('uploads', $fileName, 'public');
+
+            // Kép rekord létrehozása
+            Image::create([
+                'ImageData' => $fileName,
+                'AnimalID'  => $NewRecord->ID // Fontos: nagybetűs ID
+            ]);
+        }
+
         return response()->json(["success" => true, "data" => $NewRecord], 201);
     }
 
