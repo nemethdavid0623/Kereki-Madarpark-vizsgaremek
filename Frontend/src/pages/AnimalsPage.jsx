@@ -13,24 +13,24 @@ function AnimalsPage() {
   }, []);
 
   if (data === null) {
-    return <Layout><div>Loading...</div></Layout>;
+    return (
+      <Layout>
+        <div>Loading...</div>
+      </Layout>
+    );
   }
 
   return (
     <Layout>
-      <div className="birds-page-wrapper">
-        <div className="birds-search-bar">
+      <div className="animal-page-wrapper">
+        <div className="animal-search-bar">
           <span>Kereső:</span>
-          <input type="text" placeholder="Keress..."/>
+          <input type="text" placeholder="Keress..." />
         </div>
 
-
-        <div className="birds-grid">
+        <div className="animal-grid">
           {data.map((row) => (
-            <Animals
-              key={row.ID}
-              SpeciesName={row.SpeciesName}
-            />
+            <Animals key={row.ID} SpeciesName={row.SpeciesName} />
           ))}
         </div>
       </div>

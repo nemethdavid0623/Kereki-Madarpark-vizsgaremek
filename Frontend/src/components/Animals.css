@@ -1,14 +1,17 @@
-.birds-page-wrapper {
-    width: 1100px;
+.animal-page-wrapper {
+    width: 100%;
+    margin: 0, auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
-.birds-search-bar {
+.animal-search-bar {
     background-color: #4a773c;
-    border: 2px solid #1a1a1a;
-    border-radius: 4px;
-    padding: 10px;
+    border: 3px solid #1a1a1a;
+    border-radius: 20px;
+    padding: 15px;
     margin-bottom: 15px;
     display: flex;
     justify-content: center;
@@ -16,44 +19,47 @@
     gap: 15px;
     color: white;
     font-family: 'Joti One', serif;
+    width: 100%;
 }
 
-.birds-search-bar input {
+.animal-search-bar input {
     border: 2px solid #1a1a1a;
     padding: 8px;
-    width: 300px;
+    width: 100%;
+    max-width: 400px;
     border-radius: 4px;
 }
 
-.birds-grid {
+.animal-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    gap: 25px;
+    width: 100%;
     margin-bottom: 40px;
 }
 
-.bird-card {
-    border: 2px solid #1a1a1a;
+.animal-card {
+    border: 3px solid #1a1a1a;
     background-color: #4a773c;
     display: flex;
     flex-direction: column;
-    border-radius: 4px;
+    border-radius: 20px;
     overflow: hidden;
 }
 
-.bird-img-placeholder {
+.animal-img-placeholder {
     background-color: #d1d1d1;
-    height: 160px;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
     font-family: 'Joti One', serif;
-    border-bottom: 2px solid #1a1a1a;
+    border-bottom: 3px solid #1a1a1a;
 }
 
-.bird-label {
-    padding: 10px;
+.animal-label {
+    padding: 15px;
     text-align: center;
     color: white;
     font-family: 'Joti One', serif;
@@ -61,6 +67,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     width: 80%;
+    flex-grow: 1;
 }

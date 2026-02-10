@@ -3,13 +3,13 @@ import axios from "axios";
 
 const AuthContext = createContext();
 
-// Interceptor a 401-es (lejárt/érvénytelen token) hibákhoz
+
 axios.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response && error.response.status === 401) {
       localStorage.removeItem("token");
-      localStorage.removeItem("user"); // Ezt is töröljük
+      localStorage.removeItem("user"); 
       window.location.href = "/Login";
     }
     return Promise.reject(error);
@@ -17,7 +17,6 @@ axios.interceptors.response.use(
 );
 
 export const AuthProvider = ({ children }) => {
-  // A kezdeti értéket a localStorage-ból vesszük, hogy F5 után is meglegyen
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user")) || null,
   );
@@ -27,7 +26,6 @@ export const AuthProvider = ({ children }) => {
     if (token) {
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       localStorage.setItem("token", token);
-      // Ha van user objektum, azt is mentsük el stringként
       if (user) {
         localStorage.setItem("user", JSON.stringify(user));
       }
@@ -36,7 +34,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.removeItem("token");
       localStorage.removeItem("user");
     }
-  }, [token, user]); // Figyeljük a user változását is!
+  }, [token, user]); 
 
   const login = (userData, userToken) => {
     setUser(userData);

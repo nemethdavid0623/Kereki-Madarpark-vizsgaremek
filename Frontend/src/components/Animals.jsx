@@ -1,13 +1,17 @@
-import React from 'react';
-import './Animals.css';
+import React from "react";
+import "./Animals.css";
 
 const Animals = (props) => {
   return (
-    <div className="bird-card">
-      <div className="bird-img-placeholder">
-        {props.image ? <img src={props.image} alt={props.SpeciesName} /> : "kép"}
+    <div className="animal-card">
+      <div className="animal-img-placeholder">
+        {props.image ? (
+          <img src={props.image} alt={props.SpeciesName} />
+        ) : (
+          "kép"
+        )}
       </div>
-      <div className="bird-label">
+      <div className="animal-label">
         <p>{props.SpeciesName}</p>
       </div>
     </div>

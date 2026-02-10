@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Joti+One&display=swap');
+
 html, body {
     margin: auto;
     padding: 0;
     width: 100%;
     background-color: #333333; 
     display: flex;
+    font-family: 'Joti One', serif;
     justify-content: center;
 }
 
@@ -18,16 +21,19 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 1200px; 
-    padding: 20px 0;
+    gap: 20px;
+    width: 100%; 
+    max-width: 1200px;
+    padding: 20px;
     font-family: 'Joti One', serif;
     box-sizing: border-box;
-    margin: auto;
+    margin: 0, auto;
 }
 
 .header-img, .header-banner-nav, .header-banner, 
-.description-banner, .content-row div, .footer,
-.birds-search-bar, .bird-card {
+.description-banner, .content-row div, .footer
+{
+    width: 100%;
     border: 3px solid #1a1a1a;
     border-radius: 20px;
     box-sizing: border-box; 
@@ -35,23 +41,28 @@ html, body {
 
 .header-banner{
     width: 100%;
+    max-width: 900px;
+    margin-bottom: 20px;
     padding: 10px 20px;
-    margin-bottom: 35px;
     display: block;
+    font-size: 2rem;
 }
 
 .header-img {
     width: 100%;
+    max-width: 900px;
     height: auto;
-    margin-bottom: 30px;
     display: block;
+    border: 3px solid #1a1a1a;
+    border-radius: 20px;
 }
 
 .header-banner-nav {
     background-color: #4a773c;
     width: 100%;
+    max-width: 900px;
     padding: 10px 20px;
-    margin-bottom: 35px;
+    margin-bottom: 15px;
 }
 
 .nav-links {
@@ -81,32 +92,36 @@ html, body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 80%;
-    padding: 0%, 20%;
+    width: 85%;
+    max-width: 900px;
+    padding: 0%;
 }
 
 .content-row {
     display: flex;
-    height: 300px; /* Megemeltem kicsit, hogy jobban hasonlítson a tervre */
-    gap: 20px;     /* Nagyobb távolság a dobozok között */
-    width: 100%;   /* Töltse ki a rendelkezésre álló helyet a wrapperben */
-    max-width: 1000px;
-    margin: auto; /* Alul legyen távolság a sorok között */
+    height: 250px;
+    max-width: 100%; 
+    gap: 20px;        
 }
 
 .content-row.reverse { 
     flex-direction: row-reverse; 
-    margin: auto;
+    display: flex;
+    height: 250px;
+    max-width: 100%; 
+    gap: 20px;        
 }
 
 .image-placeholder, .text-placeholder {
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: white;
-    min-width: 0;
+    border: 3px solid #1a1a1a;
     flex: 1;
+    border-radius: 20px;
 }
 
 .image-placeholder {
@@ -116,7 +131,7 @@ html, body {
 }
 
 .text-placeholder {
-    flex: 1.5;
+    flex: 2;
     background-color: #4a773c;
 }
 
@@ -124,86 +139,19 @@ html, body {
     background-color: #4a773c;
     color: white;
     text-align: center;
-    padding: 20px;
-
 }
 
 .description-banner {
     padding: 30px 20px;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-style: italic;
     width: 100%;
-
 }
-
-.birds-page-wrapper {
-    width: 100%;
-}
-
-.birds-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 30px;
-    width: 100%;
-    margin-top: 20px;
-}
-
-.bird-card {
-    background-color: #4a773c;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer; 
-    transition: transform 0.2s;
-}
-
-.bird-card:hover {
-    transform: scale(1.02); 
-}
-
-.bird-img-placeholder {
-    background-color: #d1d1d1;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 3px solid #1a1a1a;
-    font-size: 1.5rem;
-    color: #333;
-}
-
-.bird-label {
-    padding: 15px;
-    text-align: center;
-    color: white;
-    font-size: 1.2rem;
-}
-
-
-.birds-search-bar {
-    background-color: #4a773c;
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    color: white;
-}
-
-.birds-search-bar input {
-    border: 2px solid #1a1a1a;
-    padding: 8px;
-    width: 300px;
-    border-radius: 10px;
-}
-
-.footer {
+.footer{
     background-color: #4a773c;
     width: 100%;
     color: white;
     text-align: center;
     padding: 20px;
-    margin-top: 60px;
+    margin-top: 30px;
 }
