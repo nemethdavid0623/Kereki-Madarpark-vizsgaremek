@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Gép: 127.0.0.1
--- Létrehozás ideje: 2026. Feb 07. 16:44
+-- Gép: 127.0.0.1:3306
+-- Létrehozás ideje: 2026. Feb 16. 09:04
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -34,9 +34,8 @@ CREATE TABLE `animal` (
   `SpeciesName` varchar(150) NOT NULL,
   `Quantity` int(11) NOT NULL,
   `ForSaleQuantity` int(11) NOT NULL,
-  `Origin` text NOT NULL,
   `Description` text DEFAULT NULL,
-  `More` varchar(50) DEFAULT NULL,
+  `More` varchar(200) DEFAULT NULL,
   `SpeciesID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -44,9 +43,22 @@ CREATE TABLE `animal` (
 -- A tábla adatainak kiíratása `animal`
 --
 
-INSERT INTO `animal` (`ID`, `SpeciesName`, `Quantity`, `ForSaleQuantity`, `Origin`, `Description`, `More`, `SpeciesID`) VALUES
-(2, 'European Hamster', 0, 1, 'Közép-Európa', 'Small nocturnal rodent', NULL, 2),
-(3, 'Guinea Pig', 10, 0, 'Ázsia keleti partvidéke', 'Domesticated small mammal', NULL, 2);
+INSERT INTO `animal` (`ID`, `SpeciesName`, `Quantity`, `ForSaleQuantity`, `Description`, `More`, `SpeciesID`) VALUES
+(18, 'Hullámos papagáj', 8, 3, 'A hullámos papagáj (Melopsittacus undulatus) a madarak osztályának papagájalakúak (Psittaciformes) rendjébe és a szakállaspapagáj-félék (Psittaculidae) családjába, ezen belül a lóriformák (Loriinae) alcsaládjába tartozó faj.', 'https://hu.wikipedia.org/wiki/Hull%C3%A1mos_papag%C3%A1j', 1),
+(19, 'Rozella papagáj', 9, 5, 'A keleti rozella (Platycercus eximius), korábban rozellapapagáj, a madarak osztályának papagájalakúak (Psittaciformes) rendjébe és a szakállaspapagáj-félék (Psittaculidae) családjába tartozó faj.', 'https://hu.wikipedia.org/wiki/Platycercus', 1),
+(20, 'Rózsafejű törpepapagáj', 5, 1, 'A rózsásfejű törpepapagáj (Agapornis roseicollis) a madarak osztályának a papagájalakúak (Psittaciformes) rendjébe, ezen belül a szakállaspapagáj-félék (Psittaculidae) családjába tartozó faj.', 'https://hu.wikipedia.org/wiki/R%C3%B3zs%C3%A1sfej%C5%B1_t%C3%B6rpepapag%C3%A1j', 1),
+(21, 'Hegyi Kea', 4, 0, 'A hegyi kea, más néven kea ([ˈkiː.ə]; Māori: [kɛ.a]; Nestor notabilis) a papagájalakúak (Psittaciformes) rendjébe és a bagolypapagáj-félék (Strigopoidea) öregcsaládjába tartozó faj.', 'https://hu.wikipedia.org/wiki/Hegyi_kea', 1),
+(22, 'Jácintkék ara', 6, 3, 'A jácintara (Anodorhynchus) a madarak osztályának papagájalakúak (Psittaciformes) rendjében, a papagájfélék (Psittacidae) családjában, az araformák (Arinae) alcsaládjának egyik neme.', 'https://hu.wikipedia.org/wiki/Anodorhynchus', 1),
+(23, 'Bukázó sas', 3, 1, 'A bukázósas (Terathopius ecaudatus) a vágómadár-alakúak (Accipitriformes) rendjébe, ezen belül a vágómadárfélék családjába tartozó faj', 'https://hu.wikipedia.org/wiki/Buk%C3%A1z%C3%B3sas', 1),
+(24, 'Sisakos kazuár', 2, 0, 'A sisakos kazuár vagy déli kazuár (Casuarius casuarius) a madarak osztályába, a struccalakúak (Struthioniformes) rendjébe és a kazuárfélék (Casuariidae) családjába tartozó faj.', 'https://hu.wikipedia.org/wiki/Sisakos_kazu%C3%A1r', 1),
+(25, 'Kacagójancsi', 8, 4, 'A kacagójancsi, más néven kacagó kokabura (Dacelo novaeguineae) a madarak (Aves) osztályának szalakótaalakúak (Coraciiformes) rendjébe, ezen belül a jégmadárfélék (Alcedinidae) családjába tartozó faj.', 'https://hu.wikipedia.org/wiki/Kacag%C3%B3jancsi', 1),
+(26, 'Emu', 3, 1, 'Az emu (Dromaius novaehollandiae) a madarak osztályának struccalakúak (Struthioniformes) rendjébe, az emufélék (Dromaiidae) családjába tartozó faj.', 'https://hu.wikipedia.org/wiki/Emu', 1),
+(27, 'Gatyás ölyv', 5, 2, 'A gatyás ölyv (Buteo lagopus) a madarak osztályának vágómadár-alakúak (Accipitriformes) rendjébe, ezen belül a vágómadárfélék (Accipitridae) családjába tartozó faj.', 'https://hu.wikipedia.org/wiki/Gaty%C3%A1s_%C3%B6lyv', 1),
+(28, 'Tengeri Malac', 12, 6, 'A tengerimalac vagy más néven dinnyedisznó (Cavia porcellus) a rágcsálók (Rodentia) rendjén belül a Cavia nemhez tartozó, külsőre leginkább nyúlra emlékeztető, de nála valamivel kisebb testű emlős.', 'https://hu.wikipedia.org/wiki/Tengerimalac', 2),
+(29, 'Házi nyúl', 6, 4, 'A házi nyúl (Oryctolagus cuniculus var. domestica) az emlősök osztályának a nyúlalakúak (Lagomorpha) rendjébe, ezen belül a nyúlfélék (Leporidae) családjába tartozó faj.', 'https://hu.wikipedia.org/wiki/H%C3%A1zi_ny%C3%BAl', 2),
+(30, 'Csincsilla', 5, 1, 'A csincsilla vagy gyapjas csincsilla (Chinchilla lanigera) az emlősök (Mammalia) osztályának rágcsálók (Rodentia) rendjébe, ezen belül a csincsillafélék (Chinchillidae) családjába tartozó faj.', 'https://hu.wikipedia.org/wiki/Csincsilla', 2),
+(31, 'Északi repülőmókus', 6, 3, 'Az északi repülőmókus (Glaucomys sabrinus) az emlősök (Mammalia) osztályának a rágcsálók (Rodentia) rendjébe, ezen belül a mókusfélék (Sciuridae) családjába tartozó faj.', 'https://hu.wikipedia.org/wiki/%C3%89szaki_rep%C3%BCl%C5%91m%C3%B3kus', 2),
+(32, 'Görény', 4, 1, 'A közönséges görény (Mustela putorius), vagy európai (erdei) görény, az emlősök (Mammalia) osztályának a ragadozók (Carnivora) rendjébe, ezen belül a menyétfélék (Mustelidae) családjába és a menyétformák (Mustelinae) alcsaládjába tartozó faj.', 'https://hu.wikipedia.org/wiki/K%C3%B6z%C3%B6ns%C3%A9ges_g%C3%B6r%C3%A9ny', 2);
 
 -- --------------------------------------------------------
 
@@ -105,8 +117,21 @@ CREATE TABLE `image` (
 --
 
 INSERT INTO `image` (`ID`, `ImageData`, `AnimalID`) VALUES
-(2, '�tesztkep2.png', 2),
-(3, '�tesztkep3.png', 2);
+(20, '1771148966_Hullamos Papagaj.jpg', 18),
+(21, '1771149167_Rozella Papagaj.jpg', 19),
+(22, '1771149242_Rozsafeju Torpepapagaj.jpg', 20),
+(23, '1771149392_Hegyi Kea.jpg', 21),
+(24, '1771149530_Jácintkek Ara.jpg', 22),
+(25, '1771149657_Bukazo Sas.jpg', 23),
+(26, '1771149898_Sisakos Kazuar.jpg', 24),
+(27, '1771149967_Borzas Kacagojancsi.jpg', 25),
+(28, '1771150131_Gatyas Olyv.jpg', 27),
+(29, '1771150161_Emu.jpg', 26),
+(30, '1771150233_Tengerimalac.jpg', 28),
+(31, '1771150293_Hazi Nyul.jpg', 29),
+(32, '1771150343_Csincsilla.jpg', 30),
+(33, '1771150462_Repulo Mokus.jpeg', 31),
+(34, '1771150552_Goreny.jpg', 32);
 
 -- --------------------------------------------------------
 
@@ -215,7 +240,16 @@ CREATE TABLE `personal_access_tokens` (
 --
 
 INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
-(7, 'App\\Models\\User', 3, 'api-token', '2994b794e4d38c273f9b68a8198171a71cdc8cd2eb159752fcc49b701fd39211', '[\"*\"]', '2026-02-07 14:22:14', NULL, '2026-02-07 14:12:52', '2026-02-07 14:22:14');
+(7, 'App\\Models\\User', 3, 'api-token', '2994b794e4d38c273f9b68a8198171a71cdc8cd2eb159752fcc49b701fd39211', '[\"*\"]', '2026-02-07 14:22:14', NULL, '2026-02-07 14:12:52', '2026-02-07 14:22:14'),
+(9, 'App\\Models\\User', 3, 'api-token', '60590a9a2e91d5f301e5e297f8dd4178887d16b97aa3b695ab2018c7e355d6ce', '[\"*\"]', NULL, NULL, '2026-02-09 18:03:22', '2026-02-09 18:03:22'),
+(12, 'App\\Models\\User', 3, 'api-token', 'da0e866b9d0fb90050a256b8d646cac019793c3ed16f03adb22abd9f8d76deb5', '[\"*\"]', '2026-02-10 11:49:21', NULL, '2026-02-10 11:40:29', '2026-02-10 11:49:21'),
+(13, 'App\\Models\\User', 3, 'api-token', '793b34142a13abc544681ab5a6016ac3461f5c33d59c27a66a5f761408c243d7', '[\"*\"]', NULL, NULL, '2026-02-10 11:53:24', '2026-02-10 11:53:24'),
+(16, 'App\\Models\\User', 3, 'api-token', '380f93c3875dec34e08df8910d0d0223fffaa5fe70af08b300a24de8ed0e2a4a', '[\"*\"]', '2026-02-10 17:45:28', NULL, '2026-02-10 17:45:16', '2026-02-10 17:45:28'),
+(21, 'App\\Models\\User', 3, 'api-token', 'f0d43c7ba1e75fca1cdabb50d69e87276a27fcd5437952408998e12b2c77b258', '[\"*\"]', '2026-02-10 17:58:54', NULL, '2026-02-10 17:58:17', '2026-02-10 17:58:54'),
+(22, 'App\\Models\\User', 3, 'api-token', 'c146c381e665674ae2e4d1cb76ae1478bd42a63d6403851e263e97640dd9c16c', '[\"*\"]', NULL, NULL, '2026-02-10 18:03:06', '2026-02-10 18:03:06'),
+(23, 'App\\Models\\User', 3, 'api-token', '7f634e2a15074d4dab1dbdde3357fd6b5a19a59a71fc7a8afc07278978b2c25f', '[\"*\"]', '2026-02-10 18:10:20', NULL, '2026-02-10 18:09:27', '2026-02-10 18:10:20'),
+(25, 'App\\Models\\User', 3, 'api-token', 'd8ce1028ec2126b612cce0f986f3e661e81545dbdc0a62865763e6ff2ad0f212', '[\"*\"]', '2026-02-10 18:59:45', NULL, '2026-02-10 18:53:23', '2026-02-10 18:59:45'),
+(27, 'App\\Models\\User', 3, 'api-token', '33cb3c715f6ca339f23c25b3d22f5beaac993154e22b244cfd7c5c2d586d2b23', '[\"*\"]', '2026-02-15 08:15:55', NULL, '2026-02-15 08:15:30', '2026-02-15 08:15:55');
 
 -- --------------------------------------------------------
 
@@ -231,6 +265,16 @@ CREATE TABLE `sessions` (
   `payload` longtext NOT NULL,
   `last_activity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- A tábla adatainak kiíratása `sessions`
+--
+
+INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+('BODkd9wV9OUeNtC7J9eQoesX2EA1oNZju9i9wWiv', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiUkJnM2Rycm1Fdkt0dmlZcnRBeVBkZ29VaHFaallQc3MzM2JsMXJQWCI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1770724021),
+('g5bCvJ6Nh7KJSBoRulSyJRI4cKMDf1q9AsjMFQju', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQmwxMUpnbFNITFhWcG1YZnRuZTJwc1JyMkxINUVNRFZDWHZXT2tsSCI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1770728459),
+('vSuHKxPo8MjOZWG3CAeMnQh9AmOGRrFbH1IVn5S9', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoieFV0WlVOZXBQVXZuRFcwS2thdlFHM3Q0TFRBWkR0Snh5QVZxdlp4NCI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1771146873),
+('Wx35r8GUVstcpSW2ZppEH6HhNRerRc8qxRR2zvxg', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQ2ZXcFd3dDhwY1NQWkdDR09vM043bWlZY3V5V05PNTVXbWlBZnFZeCI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1770748459);
 
 -- --------------------------------------------------------
 
@@ -382,7 +426,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT a táblához `animal`
 --
 ALTER TABLE `animal`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT a táblához `failed_jobs`
@@ -394,7 +438,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT a táblához `image`
 --
 ALTER TABLE `image`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT a táblához `jobs`
@@ -418,7 +462,7 @@ ALTER TABLE `openinghours`
 -- AUTO_INCREMENT a táblához `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT a táblához `species`
