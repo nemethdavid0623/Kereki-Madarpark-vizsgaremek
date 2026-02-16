@@ -30,7 +30,11 @@ function AnimalsPage() {
 
         <div className="animal-grid">
           {data.map((row) => (
-            <Animals key={row.ID} SpeciesName={row.SpeciesName} />
+            <Animals
+              key={row.ID}
+              SpeciesName={row.SpeciesName}
+              images={row.images}
+            />
           ))}
         </div>
       </div>
