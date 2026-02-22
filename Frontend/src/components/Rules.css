@@ -1,0 +1,66 @@
+.rules-page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 900px;
+}
+
+.rules-header-banner {
+    background-color: #4a773c;
+    color: white;
+    text-align: center;
+    width: 100%;
+    border: 3px solid #1a1a1a;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-family: 'Joti One', serif;
+}
+
+.rules-text-container {
+    background-color: #4a773c;
+    color: white;
+    width: 100%;
+    min-height: 400px;
+    /* Hogy szép nagy legyen a doboz, mint a rajzon */
+    border: 3px solid #1a1a1a;
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.rules-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Kalam', cursive;
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+.rules-list li {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: flex-start;
+}
+
+/* Egy kis madár ikon minden pont elé */
+.rules-list li::before {
+    content: "🦜";
+    margin-right: 15px;
+    filter: drop-shadow(2px 2px 0px #1a1a1a);
+}
+
+.rules-list li:last-child {
+    border-bottom: none;
+}
+
+/* Hover effekt a pontokra */
+.rules-list li:hover {
+    color: #ffeb3b;
+    transform: translateX(5px);
+    transition: all 0.3s ease;
+}
