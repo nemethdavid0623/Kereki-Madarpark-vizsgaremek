@@ -6,18 +6,18 @@ const Animals = (props) => {
   const imageName = props.images?.[0]?.ImageData;
   const imageUrl = `http://127.0.0.1:8000/storage/uploads/${imageName}`;
 
+  // ... a kód eleje (imageUrl generálás) változatlan ...
+
   return (
     <div className="animal-card">
       <div className="animal-img-placeholder">
-        {/* JAVÍTÁS: Itt imageName-t kell vizsgálni, nem props.image-et! */}
         {imageName ? (
           <img
             src={imageUrl}
             alt={props.SpeciesName}
-            className="bird-card-img"
+            className="animal-card-img"
             onError={(e) => {
-              e.target.src =
-                "https://via.placeholder.com/200?text=Hiba+a+betöltéskor";
+              e.target.src = "https://via.placeholder.com/200?text=Hiba+a+betöltéskor";
             }}
           />
         ) : (
@@ -25,7 +25,15 @@ const Animals = (props) => {
         )}
       </div>
       <div className="animal-label">
-        <p>{props.SpeciesName}</p>
+        <div className="label-content">
+          <p className="species-name">{props.SpeciesName}</p>
+          {/* Csak ha több mint 0 eladó példány van */}
+          {props.ForSaleQuantity > 0 && (
+            <div className="for-sale-count">
+              Eladó: {props.ForSaleQuantity} db
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
