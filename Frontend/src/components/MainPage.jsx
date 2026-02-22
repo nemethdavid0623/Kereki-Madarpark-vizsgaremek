@@ -5,79 +5,86 @@ import "./MainPage.css";
 const MainPage = () => {
   return (
     <div className="main-page-content">
+      {/* 1. HEADER KÉP */}
       <img
         src="/madarpark_header.png"
         alt="Balatoni Madárkert"
         className="header-img"
       />
 
+      {/* 2. NAVIGÁCIÓ */}
       <nav className="header-banner-nav">
         <ul className="nav-links">
-          <Link to="http://localhost:5173/">
-            <img src="/logo.png" alt="" className="logo" />
-          </Link>
           <li>
-            <Link to="http://localhost:5173/Animals">Tenyészetünk</Link>
+            <Link to="/">
+              <img src="/logo.png" alt="Logo" className="logo" />
+            </Link>
           </li>
-          <li>
-            <a href="#">Eladó példányaink</a>
-          </li>
-          <li>
-            <a href="#">Árak, Nyitvatartás</a>
-          </li>
-          <li>
-            <a href="#">Házirend</a>
-          </li>
-          <li>
-            <a href="http://localhost:5173/Login">Admin</a>
-          </li>
+          <li><Link to="/Animals">Tenyészetünk</Link></li>
+          <li><Link to="/ForSalePage">Eladó példányaink</Link></li>
+          <li><Link to="/Rules">Házirend</Link></li>
+          <li><Link to="/PriceOpening">Árak és nyitvatartás</Link></li>
+          <li><a href="/Login">Admin</a></li>
         </ul>
       </nav>
 
+      {/* 3. ÜDVÖZLŐ SZÖVEG */}
       <div className="header-banner">
         <h2>Üdvözlünk a Balatoni Madárkertben!</h2>
       </div>
 
       <div className="description-banner">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. At natus aut
-          reiciendis consectetur assumenda. Assumenda ducimus, magni fugiat
-          ullam temporibus, facilis tempore molestiae accusantium cumque nihil,
-          sint distinctio fuga quae.
+          A Balaton partjától karnyújtásnyira, Kőröshegy és Kereki határában várja Önt egy különleges világ, ahol a természet az úr.
+          Madárkertünk nem csupán egy bemutatóhely, hanem egy családias hangulatú zöld menedék, ahol a fák hűvösében, madárdal mellett pihenhet meg a rohanó hétköznapokból.
         </p>
       </div>
 
+      {/* 4. TARTALMI BLOKKOK (CIKK-CAKK) */}
+
+      {/* Sor 1: Kép balra - Szöveg jobbra */}
       <div className="content-row">
-        <div className="image-placeholder">kép</div>
+        <div className="image-placeholder">
+          <img src="/kep1.jpg" alt="Színes papagájok" className="content-img" />
+        </div>
         <div className="text-placeholder">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo, ipsum
-          quam. Dolorum error tempora magnam aliquid deserunt aspernatur,
-          placeat sit illo temporibus. Quis maiores ea obcaecati ut. Quae, quis
-          provident?
+          <p>
+            Parkunkban a világ legszebb madaraival találkozhat: az <strong>egzotikus, beszélő papagájoktól</strong> kezdve a ritka díszmadarakon át egészen a méltóságteljes ragadozókig.
+            Lakóink nagy részét kézből neveltük, így látogatóinknak egyedülálló élményben lehet részük.
+          </p>
         </div>
       </div>
 
+      {/* Sor 2: Szöveg balra - Kép jobbra (REVERSE) */}
       <div className="content-row reverse">
-        <div className="image-placeholder">kép</div>
+        <div className="image-placeholder">
+          <img src="/kep2.jpg" alt="Oktatás és felfedezés" className="content-img" />
+        </div>
         <div className="text-placeholder">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam
-          dignissimos laudantium architecto quos. Officiis odio autem modi
-          placeat aliquam rerum cupiditate similique quibusdam, dolorem
-          provident eligendi velit accusantium nesciunt distinctio?
+          <p>
+            Hisszük, hogy a természet védelme a megismeréssel kezdődik.
+            Ezért Madárkertünkben nagy hangsúlyt fektetünk az <strong>ismeretterjesztésre</strong>: modern, QR-kódos rendszerünk segítségével bárki azonnal érdekességeket tudhat meg a madarak életmódjáról.
+          </p>
         </div>
       </div>
 
+      {/* Sor 3: Kép balra - Szöveg jobbra */}
       <div className="content-row">
-        <div className="image-placeholder">kép</div>
+        <div className="image-placeholder">
+          <img src="/kep3.jpg" alt="Családi kirándulás" className="content-img" />
+        </div>
         <div className="text-placeholder">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quo
-          minima nihil repellendus rem quod voluptatibus corporis ratione
-          doloribus at? Veniam nulla, magnam doloremque delectus omnis tempore
-          voluptatem adipisci laboriosam!
+          <p>
+            Legyen szó egy izgalmas hétvégi programról a gyerekekkel, vagy egy csendes sétáról a természet kedvelőinek, a <strong>Kereki Madárkert</strong> felejthetetlen emlékeket kínál.
+            Jöjjön el hozzánk, és vigyen haza egy darabkát a természet harmóniájából!
+          </p>
         </div>
       </div>
 
-      <footer className="footer"></footer>
+      {/* 5. FOOTER */}
+      <footer className="footer">
+        <p>© 2026 Kereki Madárkert - Minden jog fenntartva</p>
+      </footer>
     </div>
   );
 };

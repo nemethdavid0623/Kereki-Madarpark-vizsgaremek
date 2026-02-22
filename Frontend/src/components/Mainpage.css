@@ -2,10 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
 
 html, body {
-    margin: auto;
+    margin: 0;
     padding: 0;
     width: 100%;
-    background-color: #333333; 
+    background-color:#232b23; 
     display: flex;
     justify-content: center;
 }
@@ -21,12 +21,11 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
     width: 100%; 
-    max-width: 1200px;
+    max-width: 1000px;
     padding: 20px;
     box-sizing: border-box;
-    margin: 0, auto;
 }
 
 .nav-links a {
@@ -54,13 +53,22 @@ html, body {
     box-sizing: border-box; 
 }
 
-.header-banner{
+.header-banner {
+    background-color: #4a773c;
+    color: white;
+    text-align: center;
     width: 100%;
-    max-width: 900px;
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    display: block;
-    font-size: 2rem;
+    padding: 20px; /* Megnövelt padding */
+    border: 3px solid #1a1a1a;
+    border-radius: 20px;
+    box-sizing: border-box;
+    
+    /* ÚJ: Karakteres megjelenés */
+    font-size: 2.2rem;
+    font-family: 'Joti One', serif;
+    text-shadow: 2px 2px 0px #1a1a1a; /* Betűk árnyéka a jobb olvashatóságért */
+    box-shadow: 6px 6px 0px #1a1a1a;  /* Doboz külső árnyéka */
+    margin-bottom: 10px;
 }
 
 .header-img {
@@ -70,14 +78,21 @@ html, body {
     display: block;
     border: 3px solid #1a1a1a;
     border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
 
 .header-banner-nav {
     background-color: #4a773c;
     width: 100%;
     max-width: 900px;
-    padding: 10px 20px;
+    padding: 12px 15px;
     margin-bottom: 15px;
+    border: 3px solid #1a1a1a;
+    border-radius: 50px; /* Kapszula forma */
+    box-shadow: 6px 6px 0px #1a1a1a; /* Megkapta az egységes árnyékot */
+    position: sticky; /* Görgetéskor felül marad */
+    top: 15px;
+    z-index: 1000;
 }
 
 .nav-links {
@@ -90,9 +105,15 @@ html, body {
 }
 
 .logo {
-    height: 80px;
-    margin: 0px,-5px;
+    height: 75px;
+    margin: 0;
     display: block;
+    filter: drop-shadow(2px 2px 0px #1a1a1a); /* Logó árnyéka */
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: rotate(-5deg) scale(1.1);
 }
 
 .nav-links a {
@@ -106,17 +127,18 @@ html, body {
 .main-page-content {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    width: 85%;
+    gap: 30px;
+    width: 100%;
     max-width: 900px;
     padding: 0%;
 }
 
 .content-row {
     display: flex;
-    height: 250px;
-    max-width: 100%; 
-    gap: 20px;        
+    width: 100%;
+    gap: 30px;
+    margin-bottom: 20px;     /* Távolság a következő blokktól */
+    min-height: 300px;      
 }
 
 .content-row.reverse { 
@@ -142,31 +164,71 @@ html, body {
 .image-placeholder {
     flex: 1;
     background-color: #d1d1d1;
-    color: #333;
+    border: 3px solid #1a1a1a;
+    border-radius: 20px;
+    overflow: hidden;         /* Hogy a kép ne lógjon ki a kerekített sarokból */
+    box-shadow: 4px 4px 0px #1a1a1a;
 }
 
 .text-placeholder {
-    flex: 2;
+    flex: 1.8;
     background-color: #4a773c;
+    border: 3px solid #1a1a1a;
+    border-radius: 20px;
+    
+    /* Ez a rész a kulcs: */
+    padding: 40px;            /* Megfelelő távolság a kerettől */
+    display: flex;
+    align-items: center;      /* Függőlegesen középre teszi a szöveget */
+    justify-content: center;  /* Vízszintesen középre teszi */
+    
+    color: white;
+    font-family: 'Kalam', cursive;
+    font-size: 1.6rem;        /* Kicsit nagyobb betűk */
+    line-height: 1.6;         /* Jobb sorköz, hogy olvashatóbb legyen */
+    text-align: center;       /* Középre zárt szöveg barátságosabb itt */
+    box-shadow: 4px 4px 0px #1a1a1a; /* Kemény árnyék a karakterességért */
+    outline: 2px dashed rgba(255, 255, 255, 0.2);
+    outline-offset: -15px;
 }
-
 .header-banner, .description-banner {
     background-color: #4a773c;
     color: white;
     text-align: center;
 }
 
+/* --- MainPage.css kiegészítés --- */
+
 .description-banner {
-    padding: 30px 20px;
-    font-size: 1.8rem;
-    font-style: italic;
+    background-color: #4a773c;
+    color: white;
+    text-align: center;
+    padding: 40px 30px; /* Még több levegő a szöveg körül */
     width: 100%;
+    border: 3px solid #1a1a1a;
+    border-radius: 20px;
+    box-sizing: border-box;
+    
+    /* ÚJ: Stílusos szövegmegjelenítés */
+    font-family: 'Kalam', cursive;
+    font-size: 1.6rem; /* Kicsit finomabb méret a kényelmes olvasáshoz */
+    line-height: 1.5;
+    box-shadow: 6px 6px 0px #1a1a1a; /* Ugyanaz az árnyék, mint a többi elemnél */
+    
+    /* Egy kis extra: belső keret imitáció */
+    outline: 2px dashed rgba(255, 255, 255, 0.2);
+    outline-offset: -15px;
 }
 .footer{
     background-color: #4a773c;
     width: 100%;
+    max-width: 900px;
     color: white;
     text-align: center;
-    padding: 20px;
-    margin-top: 30px;
+    padding: 25;
+    margin-top: 40px;
+    border: 3px solid #1a1a1a;
+    border-radius: 20px;
+    box-shadow: 6px 6px 0px #1a1a1a; /* Ez is megkapta az árnyékot */
+    font-family: 'Kalam', cursive;
 }

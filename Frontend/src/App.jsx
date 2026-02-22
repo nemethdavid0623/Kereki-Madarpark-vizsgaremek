@@ -7,6 +7,8 @@ import ProtectedRoute from './ProtectedRoot';
 import AdminMenu from './components/AdminMenu';
 import { AuthProvider } from './components/AuthContext';
 import AnimalDelete from './components/AnimalDelete';
+import Rules from './components/Rules';
+import ForSalePage from './components/ForSalePage';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage/>}/>
         <Route path="/Animals" element={<AnimalsPage/>}/>
+        <Route path="/ForSalePage" element={<ForSalePage/>}></Route>
+        <Route path="/Rules" element={<Rules/>}></Route>
         <Route path="/Login" element={<Login/>}/>
 
         <Route 
