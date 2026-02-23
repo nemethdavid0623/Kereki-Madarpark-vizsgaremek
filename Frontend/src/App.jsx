@@ -9,6 +9,7 @@ import { AuthProvider } from './components/AuthContext';
 import AnimalDelete from './components/AnimalDelete';
 import Rules from './components/Rules';
 import ForSalePage from './components/ForSalePage';
+import PriceOpening from './components/PriceOpening';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/Animals" element={<AnimalsPage/>}/>
         <Route path="/ForSalePage" element={<ForSalePage/>}></Route>
         <Route path="/Rules" element={<Rules/>}></Route>
+        <Route path='/PriceOpening' element={<PriceOpening/>}></Route>
         <Route path="/Login" element={<Login/>}/>
 
         <Route 
