@@ -1,3 +1,5 @@
+import Layout from "./Layout";
+
 const PriceOpening=()=>{
     const price = [
     "Teljesárú 3.200Ft/fő",
@@ -14,16 +16,20 @@ const PriceOpening=()=>{
     <Layout>
       <div className="rules-page-content">
         <div className="header-banner">
-          <h2>Házirend</h2>
+          <h2>Árak és nyitvatartás</h2>
         </div>
 
         <div className="rules-text-container">
+            <h2>Áraink</h2>
           <ul className="rules-list">
             {price.map((rule, index) => (
               <li key={index}>{rule}</li>
             ))}
           </ul>
         </div>
+      </div>
+
+      <div>
       </div>
     </Layout>
   );
