@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1:3306
--- Létrehozás ideje: 2026. Feb 16. 09:04
+-- Létrehozás ideje: 2026. Feb 23. 09:41
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -119,19 +119,19 @@ CREATE TABLE `image` (
 INSERT INTO `image` (`ID`, `ImageData`, `AnimalID`) VALUES
 (20, '1771148966_Hullamos Papagaj.jpg', 18),
 (21, '1771149167_Rozella Papagaj.jpg', 19),
-(22, '1771149242_Rozsafeju Torpepapagaj.jpg', 20),
 (23, '1771149392_Hegyi Kea.jpg', 21),
 (24, '1771149530_Jácintkek Ara.jpg', 22),
-(25, '1771149657_Bukazo Sas.jpg', 23),
 (26, '1771149898_Sisakos Kazuar.jpg', 24),
-(27, '1771149967_Borzas Kacagojancsi.jpg', 25),
 (28, '1771150131_Gatyas Olyv.jpg', 27),
 (29, '1771150161_Emu.jpg', 26),
 (30, '1771150233_Tengerimalac.jpg', 28),
 (31, '1771150293_Hazi Nyul.jpg', 29),
 (32, '1771150343_Csincsilla.jpg', 30),
-(33, '1771150462_Repulo Mokus.jpeg', 31),
-(34, '1771150552_Goreny.jpg', 32);
+(34, '1771150552_Goreny.jpg', 32),
+(35, '1771779352_Rozsafeju Torpepapagaj.jpg', 20),
+(36, '1771779366_Bukazo Sas.jpg', 23),
+(37, '1771779383_Repulo Mokus.jpeg', 31),
+(38, '1771779405_Borzas Kacagojancsi.jpg', 25);
 
 -- --------------------------------------------------------
 
@@ -249,7 +249,10 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (22, 'App\\Models\\User', 3, 'api-token', 'c146c381e665674ae2e4d1cb76ae1478bd42a63d6403851e263e97640dd9c16c', '[\"*\"]', NULL, NULL, '2026-02-10 18:03:06', '2026-02-10 18:03:06'),
 (23, 'App\\Models\\User', 3, 'api-token', '7f634e2a15074d4dab1dbdde3357fd6b5a19a59a71fc7a8afc07278978b2c25f', '[\"*\"]', '2026-02-10 18:10:20', NULL, '2026-02-10 18:09:27', '2026-02-10 18:10:20'),
 (25, 'App\\Models\\User', 3, 'api-token', 'd8ce1028ec2126b612cce0f986f3e661e81545dbdc0a62865763e6ff2ad0f212', '[\"*\"]', '2026-02-10 18:59:45', NULL, '2026-02-10 18:53:23', '2026-02-10 18:59:45'),
-(27, 'App\\Models\\User', 3, 'api-token', '33cb3c715f6ca339f23c25b3d22f5beaac993154e22b244cfd7c5c2d586d2b23', '[\"*\"]', '2026-02-15 08:15:55', NULL, '2026-02-15 08:15:30', '2026-02-15 08:15:55');
+(27, 'App\\Models\\User', 3, 'api-token', '33cb3c715f6ca339f23c25b3d22f5beaac993154e22b244cfd7c5c2d586d2b23', '[\"*\"]', '2026-02-15 08:15:55', NULL, '2026-02-15 08:15:30', '2026-02-15 08:15:55'),
+(29, 'App\\Models\\User', 3, 'api-token', 'e70266ecfeeb6031539cf6ba45ee0d2d6914815521081e9694f22bd48f37d2b5', '[\"*\"]', NULL, NULL, '2026-02-16 07:39:09', '2026-02-16 07:39:09'),
+(32, 'App\\Models\\User', 3, 'api-token', '8a86f028af6cc7127f8e61ae27a8913573e9c29f6400262731da28cf59a8f1bf', '[\"*\"]', NULL, NULL, '2026-02-22 15:50:43', '2026-02-22 15:50:43'),
+(35, 'App\\Models\\User', 3, 'api-token', '9da164537a4cbbc0bfc7cfe11a48e657fed7fbed2e20b6b1ff7660d6b8f4a39b', '[\"*\"]', NULL, NULL, '2026-02-23 07:39:02', '2026-02-23 07:39:02');
 
 -- --------------------------------------------------------
 
@@ -271,10 +274,11 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('BODkd9wV9OUeNtC7J9eQoesX2EA1oNZju9i9wWiv', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiUkJnM2Rycm1Fdkt0dmlZcnRBeVBkZ29VaHFaallQc3MzM2JsMXJQWCI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1770724021),
-('g5bCvJ6Nh7KJSBoRulSyJRI4cKMDf1q9AsjMFQju', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQmwxMUpnbFNITFhWcG1YZnRuZTJwc1JyMkxINUVNRFZDWHZXT2tsSCI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1770728459),
-('vSuHKxPo8MjOZWG3CAeMnQh9AmOGRrFbH1IVn5S9', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoieFV0WlVOZXBQVXZuRFcwS2thdlFHM3Q0TFRBWkR0Snh5QVZxdlp4NCI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1771146873),
-('Wx35r8GUVstcpSW2ZppEH6HhNRerRc8qxRR2zvxg', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQ2ZXcFd3dDhwY1NQWkdDR09vM043bWlZY3V5V05PNTVXbWlBZnFZeCI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1770748459);
+('6Z8hqRHVzWDhM0jsqxu728fJkmBk9g0Zj4vpZXuM', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiSEowdjdxSlVEZWVGbzZZOGRpRzA4TTFGNmhPeTJMWDc4TjI2UGxTNiI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1771835899),
+('EAgkpKLHt0xYuKtXMFZWnZyi2BFYZRnSJmhKo1p5', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoic2RyWDlHUDVTN25xQkdvMmExN2NOcVh5YXBpRXAyNlZxd0w1ekJUWCI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1771779874),
+('Mq5iWrm1ivmAJS5qOad3p6DWcjTsrAvhNhjBOwdh', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiY25teDYyYWxIOUNES1dxMmhzcU5aYTduN0dvZjFGTUhENzNHbUo0MSI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1771229264),
+('OR8ikY0mR39v4mD5bmIyxXh56C9sHnS0VUkwzhg3', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiZTdGMmdqTmo2T1FjWU1DSlJkYWN0d1Y0czdETzdsaUxKNUsyZTdDTiI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1771759918),
+('oVKL1W54bgu6RC7kAvpVtgeoivLOAMLE4Qow9XPU', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiOFJLYkRQOGZodVZCUVJMcmJ5N0RNVk5hVnZxTUZ5U09zNjk5QlNMdiI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1771232479);
 
 -- --------------------------------------------------------
 
@@ -438,7 +442,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT a táblához `image`
 --
 ALTER TABLE `image`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT a táblához `jobs`
@@ -462,7 +466,7 @@ ALTER TABLE `openinghours`
 -- AUTO_INCREMENT a táblához `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT a táblához `species`
