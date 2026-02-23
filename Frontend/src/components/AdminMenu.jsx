@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import AnimalDelete from "./AnimalDelete";
+import '../components/AdminMenu.css';
 
 const AdminMenu = () => {
   const navigate = useNavigate();
@@ -47,11 +48,11 @@ const AdminMenu = () => {
 const styles = {
   container: {
     padding: "50px 20px",
+    opacity: "100%",
     textAlign: "center",
-    backgroundColor: "#f8f9fa",
     minHeight: "100vh",
   },
-  title: { color: "#2c3e50", marginBottom: "30px" },
+  title: { color: "white", marginBottom: "30px" },
   menuBox: {
     display: "flex",
     flexDirection: "column",
@@ -59,14 +60,14 @@ const styles = {
     maxWidth: "300px",
     margin: "0 auto",
     padding: "20px",
-    backgroundColor: "white",
+    backgroundColor: "#126a18",
     borderRadius: "10px",
     boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
   },
   menuBtn: {
     padding: "12px",
-    backgroundColor: "#3498db",
-    color: "white",
+    backgroundColor: "#f6ff00",
+    color: "black",
     border: "none",
     borderRadius: "5px",
     cursor: "pointer",
@@ -76,7 +77,7 @@ const styles = {
   },
   logoutBtn: {
     backgroundColor: "#e74c3c",
-    color: "white",
+    color: "black",
     border: "none",
     padding: "12px",
     cursor: "pointer",

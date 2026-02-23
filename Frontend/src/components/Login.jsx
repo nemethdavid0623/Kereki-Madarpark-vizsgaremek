@@ -38,7 +38,7 @@ const Login = () => {
   return (
     <div className="login-container" style={styles.container}>
       <div style={styles.card}>
-        <h2>Admin Belépés</h2>
+        <h2 style={styles.h2}>Admin Belépés</h2>
         {error && <p style={styles.error}>{error}</p>}
         <form onSubmit={handleSubmit} style={styles.form}>
           <input
@@ -72,21 +72,27 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     height: "100vh",
-    backgroundColor: "#f4f4f4",
   },
+
+  h2:{
+    color:"black",
+    textAlign:"center"
+  },
+
   card: {
     padding: "2rem",
-    backgroundColor: "#fff",
+    backgroundColor: "#126a18",
     borderRadius: "8px",
     boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
     width: "300px",
+    border: "1px solid black"
   },
   form: { display: "flex", flexDirection: "column", gap: "1rem" },
   input: { padding: "0.8rem", borderRadius: "4px", border: "1px solid #ccc" },
   button: {
     padding: "0.8rem",
-    backgroundColor: "#007bff",
-    color: "white",
+    backgroundColor: "#f6ff00",
+    color: "black",
     border: "none",
     borderRadius: "4px",
     cursor: "pointer",

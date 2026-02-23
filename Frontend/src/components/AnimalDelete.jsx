@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
-import { useNavigate } from 'react-router-dom'; // 1. Navigáció importálása
+import { useNavigate } from 'react-router-dom';
 
 const AnimalDelete = () => {
     const [animals, setAnimals] = useState([]);
     const [loading, setLoading] = useState(true);
     const { token } = useAuth();
-    const navigate = useNavigate(); // 2. Navigáció inicializálása
+    const navigate = useNavigate();
 
     const fetchAnimals = async () => {
         try {
@@ -71,7 +71,6 @@ const AnimalDelete = () => {
                             <td style={styles.td}>{animal.SpeciesID === 1 ? 'Madár' : 'Egyéb'}</td>
                             <td style={styles.td}>{animal.Quantity} db</td>
                             <td style={styles.td}>
-                                {/* 3. SZERKESZTÉS GOMB HOZZÁADÁSA */}
                                 <button 
                                     onClick={() => navigate('/AnimalInput', { state: { editAnimal: animal } })} 
                                     style={styles.editBtn}
@@ -97,18 +96,18 @@ const AnimalDelete = () => {
 };
 
 const styles = {
-    container: { maxWidth: '900px', margin: '30px auto', padding: '20px', backgroundColor: '#fff', borderRadius: '10px', boxShadow: '0 0 10px rgba(0,0,0,0.1)' },
-    title: { textAlign: 'center', color: '#333', marginBottom: '20px' },
+    container: { maxWidth: '900px', margin: '30px auto', padding: '20px', backgroundColor: '#126a18', borderRadius: '10px', boxShadow: '0 0 10px rgba(0,0,0,0.1)' },
+    title: { textAlign: 'center', color: 'white', marginBottom: '20px' },
     table: { width: '100%', borderCollapse: 'collapse' },
-    thRow: { backgroundColor: '#f8f9fa', borderBottom: '2px solid #dee2e6', textAlign: 'left' },
+    thRow: { backgroundColor: '#126a18', borderBottom: '2px solid #dee2e6', textAlign: 'left' },
     tr: { borderBottom: '1px solid #eee' },
-    td: { padding: '12px', verticalAlign: 'middle', color: '#333' },
+    td: { padding: '12px', verticalAlign: 'middle', color: 'white' },
     previewImg: { width: '60px', height: '60px', objectFit: 'cover', borderRadius: '5px', border: '1px solid #ddd' },
     noImg: { width: '60px', height: '60px', backgroundColor: '#eee', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', color: '#999', borderRadius: '5px' },
     // 4. ÚJ STÍLUS A SZERKESZTÉS GOMBHOZ
-    editBtn: { backgroundColor: '#3498db', color: 'white', border: 'none', padding: '8px 15px', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold', marginRight: '10px' },
-    deleteBtn: { backgroundColor: '#dc3545', color: 'white', border: 'none', padding: '8px 15px', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold' },
-    loader: { textAlign: 'center', marginTop: '50px', fontSize: '18px', color: '#666' }
+    editBtn: { backgroundColor: '#f6ff00', color: 'black', border: 'none', padding: '8px 15px', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold', marginRight: '10px' },
+    deleteBtn: { backgroundColor: '#dc3545', color: 'black', border: 'none', padding: '8px 15px', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold' },
+    loader: { textAlign: 'center', marginTop: '50px', fontSize: '18px', color: 'white' }
 };
 
 export default AnimalDelete;

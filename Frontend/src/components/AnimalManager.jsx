@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth } from "./AuthContext";
 import { useLocation, useNavigate } from "react-router-dom";
+import '../components/AnimalManager.css';
 
 const AnimalManager = () => {
   const { token } = useAuth();
@@ -283,39 +284,34 @@ const AnimalManager = () => {
 };
 
 const styles = {
-  pageBackground: {
-    backgroundColor: "#f0f2f5",
-    minHeight: "100vh",
-    padding: "20px",
-  },
   container: {
     maxWidth: "700px",
     margin: "0 auto",
     padding: "30px",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#126a18",
     borderRadius: "12px",
     boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
-    fontFamily: "Segoe UI, sans-serif",
+
   },
-  title: { textAlign: "center", color: "#1a1a1a", marginBottom: "25px" },
+  title: { textAlign: "center", color: "white", marginBottom: "25px" },
   form: { display: "flex", flexDirection: "column", gap: "15px" },
   label: {
     display: "block",
     marginBottom: "3px",
     fontWeight: "bold",
-    color: "#333333",
+    color: "white",
     fontSize: "14px",
   },
   row: { display: "flex", gap: "15px", flexWrap: "wrap" },
   input: {
     padding: "12px",
     borderRadius: "8px",
-    border: "2px solid #ddd",
+    border: "2px solid black",
     width: "100%",
     boxSizing: "border-box",
     color: "#000",
   },
-  hr: { border: "0", borderTop: "2px solid #f0f0f0", margin: "20px 0" },
+  hr: { border: "0", borderTop: "2px solid #000000", margin: "20px 0" },
   galleryGrid: {
     display: "flex",
     gap: "12px",
@@ -349,7 +345,7 @@ const styles = {
   },
   fileInput: {
     padding: "10px",
-    border: "2px dashed #3498db",
+    border: "2px dashed white",
     borderRadius: "8px",
     width: "100%",
     backgroundColor: "#f9f9f9",
@@ -357,8 +353,8 @@ const styles = {
   submitBtn: {
     marginTop: "20px",
     padding: "15px",
-    backgroundColor: "#2ecc71",
-    color: "white",
+    backgroundColor: "#f6ff00",
+    color: "black",
     border: "none",
     borderRadius: "8px",
     fontSize: "17px",
