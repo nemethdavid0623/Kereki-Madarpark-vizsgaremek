@@ -52,7 +52,10 @@ const styles = {
     textAlign: "center",
     minHeight: "100vh",
   },
-  title: { color: "white", marginBottom: "30px" },
+  title: { 
+    color: "white", 
+    marginBottom: "30px" 
+  },
   menuBox: {
     display: "flex",
     flexDirection: "column",
@@ -60,7 +63,7 @@ const styles = {
     maxWidth: "300px",
     margin: "0 auto",
     padding: "20px",
-    backgroundColor: "#126a18",
+    backgroundColor: "rgba(18, 106, 24, 0.5)",
     borderRadius: "10px",
     boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
   },

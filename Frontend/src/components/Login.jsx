@@ -60,6 +60,10 @@ const Login = () => {
           <button type="submit" style={styles.button}>
             Bejelentkezés
           </button>
+
+          <button onClick={() => navigate("/")} style={styles.backBtn}>
+          Vissza
+        </button>
         </form>
       </div>
     </div>
@@ -75,13 +79,13 @@ const styles = {
   },
 
   h2:{
-    color:"black",
+    color:"white",
     textAlign:"center"
   },
 
   card: {
     padding: "2rem",
-    backgroundColor: "#126a18",
+    backgroundColor: "rgba(18, 106, 24, 0.5)",
     borderRadius: "8px",
     boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
     width: "300px",
@@ -98,6 +102,20 @@ const styles = {
     cursor: "pointer",
   },
   error: { color: "red", fontSize: "0.9rem", marginBottom: "1rem" },
+    backBtn: { 
+    backgroundColor: '#dc3545', 
+    color: 'black', 
+    border: 'none', 
+    padding: '8px 15px', 
+    borderRadius: '5px', 
+    cursor: 'pointer', 
+    fontWeight: 'bold', 
+    margin:"auto", 
+    display:"flex",
+    marginTop:"2%", 
+    justifyContent:"center",
+    width:"100%",
+}
 };
 
 export default Login;

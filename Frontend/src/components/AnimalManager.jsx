@@ -274,10 +274,13 @@ const AnimalManager = () => {
               onClick={() => navigate("/AnimalDelete")}
               style={styles.cancelBtn}
             >
-              Mégse
+              Módosítás elvetése
             </button>
           )}
         </form>
+        <button onClick={() => navigate("/admin")} style={styles.backBtn}>
+          Vissza
+        </button>
       </div>
     </div>
   );
@@ -288,7 +291,7 @@ const styles = {
     maxWidth: "700px",
     margin: "0 auto",
     padding: "30px",
-    backgroundColor: "#126a18",
+    backgroundColor: "rgba(18, 106, 24, 0.5)",
     borderRadius: "12px",
     boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
 
@@ -378,6 +381,20 @@ const styles = {
     color: "#0c5460",
     textAlign: "center",
   },
+  backBtn: { 
+    backgroundColor: '#dc3545', 
+    color: 'black', 
+    border: 'none', 
+    padding: '8px 15px', 
+    borderRadius: '5px', 
+    cursor: 'pointer', 
+    fontWeight: 'bold', 
+    margin:"auto", 
+    display:"flex",
+    marginTop:"2%", 
+    justifyContent:"center",
+    width:"100%",
+}
 };
 
 export default AnimalManager;
