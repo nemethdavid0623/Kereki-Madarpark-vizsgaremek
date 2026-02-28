@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Gép: 127.0.0.1:3306
--- Létrehozás ideje: 2026. Feb 23. 09:41
+-- Gép: 127.0.0.1
+-- Létrehozás ideje: 2026. Feb 28. 15:17
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -207,6 +207,35 @@ CREATE TABLE `openinghours` (
 -- --------------------------------------------------------
 
 --
+-- Tábla szerkezet ehhez a táblához `openings`
+--
+
+CREATE TABLE `openings` (
+  `id` int(11) NOT NULL,
+  `day` varchar(20) NOT NULL,
+  `open_time` time DEFAULT '08:00:00',
+  `close_time` time DEFAULT '17:00:00',
+  `is_closed` tinyint(1) DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- A tábla adatainak kiíratása `openings`
+--
+
+INSERT INTO `openings` (`id`, `day`, `open_time`, `close_time`, `is_closed`, `created_at`, `updated_at`) VALUES
+(1, 'Hétfő', '08:00:00', '18:00:00', 0, '2026-02-28 13:48:40', '2026-02-28 13:14:09'),
+(2, 'Kedd', '08:00:00', '17:00:00', 0, '2026-02-28 13:48:40', '2026-02-28 13:14:22'),
+(3, 'Szerda', '08:00:00', '17:00:00', 0, '2026-02-28 13:48:40', '2026-02-28 13:14:25'),
+(4, 'Csütörtök', '08:00:00', '17:00:00', 0, '2026-02-28 13:48:40', '2026-02-28 13:14:26'),
+(5, 'Péntek', '08:00:00', '17:00:00', 0, '2026-02-28 13:48:40', '2026-02-28 13:14:30'),
+(6, 'Szombat', '09:00:00', '16:00:00', 0, '2026-02-28 13:48:40', '2026-02-28 13:14:31'),
+(7, 'Vasárnap', '01:00:00', '23:00:00', 0, '2026-02-28 13:48:40', '2026-02-28 13:14:35');
+
+-- --------------------------------------------------------
+
+--
 -- Tábla szerkezet ehhez a táblához `password_reset_tokens`
 --
 
@@ -386,6 +415,12 @@ ALTER TABLE `openinghours`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- A tábla indexei `openings`
+--
+ALTER TABLE `openings`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- A tábla indexei `password_reset_tokens`
 --
 ALTER TABLE `password_reset_tokens`
@@ -463,10 +498,16 @@ ALTER TABLE `openinghours`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT a táblához `openings`
+--
+ALTER TABLE `openings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT a táblához `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT a táblához `species`
