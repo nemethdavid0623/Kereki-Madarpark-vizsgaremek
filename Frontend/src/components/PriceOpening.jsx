@@ -1,5 +1,5 @@
 import Layout from "./Layout";
-
+import OpeningDisplay from "./OpeningDisplay";
 const PriceOpening=()=>{
     const price = [
     "Teljesárú 3.200Ft/fő",
@@ -30,6 +30,7 @@ const PriceOpening=()=>{
       </div>
 
       <div>
+        <OpeningDisplay/>
       </div>
     </Layout>
   );

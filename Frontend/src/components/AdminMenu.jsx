@@ -34,6 +34,12 @@ const AdminMenu = () => {
         >
           Állomány kezelése (Szerk./Törlés)
         </button>
+        <button
+          onClick={() => navigate("/admin/openings")}
+          style={styles.menuBtn}
+        >
+          Nyitvatartási idő szerkeztése
+        </button>
 
         <hr style={styles.hr} />
 

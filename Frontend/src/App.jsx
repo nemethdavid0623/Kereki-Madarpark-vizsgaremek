@@ -10,7 +10,7 @@ import AnimalDelete from './components/AnimalDelete';
 import Rules from './components/Rules';
 import ForSalePage from './components/ForSalePage';
 import PriceOpening from './components/PriceOpening';
-
+import OpeningManager from './components/OpeningManager';
 function App() {
   return (
 
@@ -45,6 +45,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <AnimalDelete/>
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/admin/openings" 
+            element={
+              <ProtectedRoute>
+                <OpeningManager/>
               </ProtectedRoute>
             } 
           />
