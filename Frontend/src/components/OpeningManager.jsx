@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from './AuthContext'; // Feltételezve, hogy van AuthContext-ed a tokenhez
+import { Navigate } from 'react-router-dom';
 
 const OpeningManager = () => {
     const { token } = useAuth();
     const [openings, setOpenings] = useState([]);
     const [loading, setLoading] = useState(true);
     const [message, setMessage] = useState('');
-
     // Adatok betöltése az adatbázisból
     useEffect(() => {
         fetchOpenings();
@@ -26,7 +26,7 @@ const OpeningManager = () => {
 
     // Egy adott nap módosítása a state-ben
     const handleChange = (id, field, value) => {
-        setOpenings(prev => prev.map(item => 
+        setOpenings(prev => prev.map(item =>
             item.id === id ? { ...item, [field]: value } : item
         ));
     };
@@ -48,11 +48,13 @@ const OpeningManager = () => {
 
     if (loading) return <div>Betöltés...</div>;
 
+
+
     return (
         <div style={styles.container}>
             <h2 style={styles.title}>Nyitvatartás Kezelése</h2>
             {message && <div style={styles.alert}>{message}</div>}
-            
+
             <div style={styles.table}>
                 <div style={styles.header}>
                     <span>Nap</span>
@@ -61,40 +63,44 @@ const OpeningManager = () => {
                     <span>Állapot</span>
                     <span>Művelet</span>
                 </div>
-                
+
                 {openings.map((item) => (
                     <div key={item.id} style={styles.row}>
                         <span style={styles.dayName}>{item.day}</span>
-                        
-                        <input 
-                            type="time" 
-                            value={item.open_time || '00:00'} 
+
+                        <input
+                            type="time"
+                            value={item.open_time || '00:00'}
                             disabled={item.is_closed}
                             onChange={(e) => handleChange(item.id, 'open_time', e.target.value)}
                             style={styles.input}
                         />
-                        
-                        <input 
-                            type="time" 
-                            value={item.close_time || '00:00'} 
+
+                        <input
+                            type="time"
+                            value={item.close_time || '00:00'}
                             disabled={item.is_closed}
                             onChange={(e) => handleChange(item.id, 'close_time', e.target.value)}
                             style={styles.input}
                         />
-                        
+
                         <label style={styles.checkboxLabel}>
-                            <input 
-                                type="checkbox" 
-                                checked={!!item.is_closed} 
+                            <input
+                                type="checkbox"
+                                checked={!!item.is_closed}
                                 onChange={(e) => handleChange(item.id, 'is_closed', e.target.checked ? 1 : 0)}
                             />
                             {item.is_closed ? ' Zárva' : ' Nyitva'}
                         </label>
-                        
+
                         <button onClick={() => handleSave(item)} style={styles.saveBtn}>Mentés</button>
                     </div>
+
                 ))}
             </div>
+            <button onClick={() => navigate("/admin")} style={styles.backBtn}>
+                Vissza
+            </button>
         </div>
     );
 };

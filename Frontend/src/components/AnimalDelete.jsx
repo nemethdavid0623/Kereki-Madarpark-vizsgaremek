@@ -42,7 +42,7 @@ const AnimalDelete = () => {
     return (
         <div style={styles.container}>
             <h2 style={styles.title}>Állatállomány Kezelése</h2>
-            
+
             <table style={styles.table}>
                 <thead>
                     <tr style={styles.thRow}>
@@ -58,10 +58,10 @@ const AnimalDelete = () => {
                         <tr key={animal.id || animal.ID} style={styles.tr}>
                             <td style={styles.td}>
                                 {animal.images && animal.images.length > 0 ? (
-                                    <img 
-                                        src={`http://localhost:8000/storage/uploads/${animal.images[0].ImageData}`} 
-                                        alt="preview" 
-                                        style={styles.previewImg} 
+                                    <img
+                                        src={`http://localhost:8000/storage/uploads/${animal.images[0].ImageData}`}
+                                        alt="preview"
+                                        style={styles.previewImg}
                                     />
                                 ) : (
                                     <div style={styles.noImg}>Nincs kép</div>
@@ -71,15 +71,15 @@ const AnimalDelete = () => {
                             <td style={styles.td}>{animal.SpeciesID === 1 ? 'Madár' : 'Egyéb'}</td>
                             <td style={styles.td}>{animal.Quantity} db</td>
                             <td style={styles.td}>
-                                <button 
-                                    onClick={() => navigate('/AnimalInput', { state: { editAnimal: animal } })} 
+                                <button
+                                    onClick={() => navigate('/AnimalInput', { state: { editAnimal: animal } })}
                                     style={styles.editBtn}
                                 >
                                     Szerkesztés
                                 </button>
 
-                                <button 
-                                    onClick={() => handleDelete(animal.id || animal.ID)} 
+                                <button
+                                    onClick={() => handleDelete(animal.id || animal.ID)}
                                     style={styles.deleteBtn}
                                 >
                                     Törlés
@@ -87,16 +87,16 @@ const AnimalDelete = () => {
                             </td>
                         </tr>
 
-                        
+
                     ))}
                 </tbody>
             </table>
 
             <button onClick={() => navigate("/admin")} style={styles.backBtn}>
-          Vissza
-        </button>
-            
-            {animals.length === 0 && <p style={{textAlign: 'center', marginTop: '20px'}}>Nincs megjeleníthető adat.</p>}
+                Vissza
+            </button>
+
+            {animals.length === 0 && <p style={{ textAlign: 'center', marginTop: '20px' }}>Nincs megjeleníthető adat.</p>}
         </div>
     );
 };
@@ -113,7 +113,7 @@ const styles = {
     editBtn: { backgroundColor: '#f6ff00', color: 'black', border: 'none', padding: '8px 15px', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold', marginRight: '10px' },
     deleteBtn: { backgroundColor: '#dc3545', color: 'black', border: 'none', padding: '8px 15px', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold' },
     loader: { textAlign: 'center', marginTop: '50px', fontSize: '18px', color: 'white' },
-    backBtn: { backgroundColor: '#dc3545', color: 'black', border: 'none', padding: '8px 15px', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold', margin:"auto", display:"flex", marginTop:"20px", justifyContent:"center", width:"50%" }
+    backBtn: { backgroundColor: '#dc3545', color: 'black', border: 'none', padding: '8px 15px', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold', margin: "auto", display: "flex", marginTop: "20px", justifyContent: "center", width: "50%" }
 };
 
 export default AnimalDelete;

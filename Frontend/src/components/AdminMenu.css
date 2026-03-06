@@ -1,11 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
-body{
+
+body {
     background-image: url("./Admin_background.png");
+    background-attachment: fixed;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: Kalam, serif;
+    font-family: 'Kalam', cursive;
+    margin: 0;
+    padding: 0;
 }
 
-div{
-    opacity: 100%;
+.admin-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+div {
+    opacity: 1;
 }

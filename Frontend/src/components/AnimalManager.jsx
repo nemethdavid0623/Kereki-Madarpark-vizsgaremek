@@ -278,9 +278,6 @@ const AnimalManager = () => {
             </button>
           )}
         </form>
-        <button onClick={() => navigate("/admin")} style={styles.backBtn}>
-          Vissza
-        </button>
       </div>
     </div>
   );
@@ -381,20 +378,20 @@ const styles = {
     color: "#0c5460",
     textAlign: "center",
   },
-  backBtn: { 
-    backgroundColor: '#dc3545', 
-    color: 'black', 
-    border: 'none', 
-    padding: '8px 15px', 
-    borderRadius: '5px', 
-    cursor: 'pointer', 
-    fontWeight: 'bold', 
-    margin:"auto", 
-    display:"flex",
-    marginTop:"2%", 
-    justifyContent:"center",
-    width:"100%",
-}
+  backBtn: {
+    backgroundColor: '#dc3545',
+    color: 'black',
+    border: 'none',
+    padding: '8px 15px',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    fontWeight: 'bold',
+    margin: "auto",
+    display: "flex",
+    marginTop: "2%",
+    justifyContent: "center",
+    width: "100%",
+  }
 };
 
 export default AnimalManager;
