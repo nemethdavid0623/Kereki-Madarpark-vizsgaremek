@@ -81,6 +81,7 @@ const styles = {
   slideshowContainer: {
     position: 'relative',
     width: '100%',
+    height: '500px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -89,8 +90,7 @@ const styles = {
   },
   largeImage: {
     width: '100%',
-    height: '500px',
-    objectFit: 'cover',
+    objectFit: 'contain',
     borderRadius: '8px'
   },
   prevBtn: {
