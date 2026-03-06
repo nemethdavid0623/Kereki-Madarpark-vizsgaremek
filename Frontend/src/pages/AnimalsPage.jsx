@@ -5,8 +5,8 @@ import Animals from '../components/Animals';
 import '../components/Animals.css';
 
 const AnimalsPage = () => {
-    const [animals, setAnimals] = useState([]); // Eredeti teljes lista
-    const [filteredAnimals, setFilteredAnimals] = useState([]); // Szűrt lista a kereséshez
+    const [animals, setAnimals] = useState([]);
+    const [filteredAnimals, setFilteredAnimals] = useState([]);
     const [searchTerm, setSearchTerm] = useState(""); 
     const [loading, setLoading] = useState(true);
 
@@ -15,10 +15,10 @@ const AnimalsPage = () => {
         try {
             const response = await axios.get('http://localhost:8000/api/AllData');
             
-            // TRÜKK: Minden állatnál 0-ra állítjuk a ForSaleQuantity-t ebben a listában
+
             const hiddenPrices = response.data.map(animal => ({
                 ...animal,
-                ForSaleQuantity: 0 // Így az Animals.jsx nem fogja kiírni
+                ForSaleQuantity: 0 
             }));
 
             setAnimals(hiddenPrices);
@@ -32,7 +32,6 @@ const AnimalsPage = () => {
     fetchAnimals();
 }, []);
 
-    // Keresés logika: minden gépelésnél lefut
     useEffect(() => {
         const results = animals.filter(animal =>
             animal.SpeciesName.toLowerCase().includes(searchTerm.toLowerCase())
@@ -47,7 +46,6 @@ const AnimalsPage = () => {
                     <h2>Tenyészetünk</h2>
                 </div>
 
-                {/* KERESŐSÁV - ugyanaz a stílus, mint az eladóknál */}
                 <div className="animal-search-bar">
                     <label>Keresés:</label>
                     <input 

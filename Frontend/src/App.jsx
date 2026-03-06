@@ -11,6 +11,7 @@ import Rules from './components/Rules';
 import ForSalePage from './components/ForSalePage';
 import PriceOpening from './components/PriceOpening';
 import OpeningManager from './components/OpeningManager';
+import LargeCard from './components/LargeCard';
 function App() {
   return (
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/Rules" element={<Rules/>}></Route>
         <Route path='/PriceOpening' element={<PriceOpening/>}></Route>
         <Route path="/Login" element={<Login/>}/>
+        <Route path='/:id' element={<LargeCard/>}/>
 
         <Route 
           path="/admin" 
