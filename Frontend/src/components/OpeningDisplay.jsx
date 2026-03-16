@@ -19,13 +19,13 @@ const OpeningDisplay = () => {
             });
     }, []);
 
-    // Függvény az aktuális nyitvatartás ellenőrzésére
+
     const checkIfOpenNow = (data) => {
         const now = new Date();
         const dayNames = ['Vasárnap', 'Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat'];
         const currentDayName = dayNames[now.getDay()];
-        
-        // Mai nap adatainak megkeresése
+
+
         const todayData = data.find(item => item.day === currentDayName);
 
         if (!todayData || todayData.is_closed) {
@@ -33,11 +33,10 @@ const OpeningDisplay = () => {
             return;
         }
 
-        // Időpontok összehasonlítása
         const currentTime = now.getHours() * 60 + now.getMinutes();
         const [openHour, openMinute] = todayData.open_time.split(':');
         const [closeHour, closeMinute] = todayData.close_time.split(':');
-        
+
         const openTime = parseInt(openHour) * 60 + parseInt(openMinute);
         const closeTime = parseInt(closeHour) * 60 + parseInt(closeMinute);
 
@@ -48,7 +47,7 @@ const OpeningDisplay = () => {
 
     return (
         <div style={styles.container}>
-            {/* MOST NYITVA JELZÉS */}
+
             <div style={{
                 ...styles.statusBadge,
                 backgroundColor: isCurrentlyOpen ? '#2ecc71' : '#e74c3c'
@@ -59,8 +58,8 @@ const OpeningDisplay = () => {
             <h3 style={styles.title}>Heti nyitvatartás</h3>
             <div style={styles.grid}>
                 {openings.map(day => (
-                    <div 
-                        key={day.id} 
+                    <div
+                        key={day.id}
                         style={{
                             ...styles.card,
                             ...(day.is_closed ? styles.closedCard : {}),
@@ -69,9 +68,9 @@ const OpeningDisplay = () => {
                     >
                         <span style={styles.dayName}>{day.day}</span>
                         <span style={styles.timeRange}>
-                            {day.is_closed 
-                                ? 'ZÁRVA' 
-    :                           `${day.open_time ? day.open_time.slice(0, 5) : '--:--'} - ${day.close_time ? day.close_time.slice(0, 5) : '--:--'}`}
+                            {day.is_closed
+                                ? 'ZÁRVA'
+                                : `${day.open_time ? day.open_time.slice(0, 5) : '--:--'} - ${day.close_time ? day.close_time.slice(0, 5) : '--:--'}`}
                         </span>
                     </div>
                 ))}
@@ -100,16 +99,16 @@ const styles = {
         boxShadow: '0 2px 5px rgba(0,0,0,0.2)'
     },
     grid: { display: 'flex', flexDirection: 'column', gap: '8px' },
-    card: { 
-        display: 'flex', justifyContent: 'space-between', 
-        padding: '10px 15px', backgroundColor: '#e8f6ef', 
+    card: {
+        display: 'flex', justifyContent: 'space-between',
+        padding: '10px 15px', backgroundColor: '#e8f6ef',
         borderRadius: '8px', borderLeft: '4px solid #2ecc71',
         fontWeight: 'bold', color: '#27ae60'
     },
-    closedCard: { 
-        backgroundColor: '#f8d7da', borderLeft: '4px solid #e74c3c', color: '#c0392b' 
+    closedCard: {
+        backgroundColor: '#f8d7da', borderLeft: '4px solid #e74c3c', color: '#c0392b'
     },
-    todayCard: { 
+    todayCard: {
         boxShadow: '0 0 10px rgba(46, 204, 113, 0.5)', border: '1px solid #2ecc71'
     },
     dayName: { flex: 1 },

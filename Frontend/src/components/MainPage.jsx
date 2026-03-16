@@ -5,14 +5,12 @@ import "./MainPage.css";
 const MainPage = () => {
   return (
     <div className="main-page-content">
-      {/* 1. HEADER KÉP */}
       <img
         src="/madarpark_header.png"
         alt="Balatoni Madárkert"
         className="header-img"
       />
 
-      {/* 2. NAVIGÁCIÓ */}
       <nav className="header-banner-nav">
         <ul className="nav-links">
           <li>
@@ -28,7 +26,6 @@ const MainPage = () => {
         </ul>
       </nav>
 
-      {/* 3. ÜDVÖZLŐ SZÖVEG */}
       <div className="header-banner">
         <h2>Üdvözlünk a Balatoni Madárkertben!</h2>
       </div>
@@ -40,9 +37,6 @@ const MainPage = () => {
         </p>
       </div>
 
-      {/* 4. TARTALMI BLOKKOK (CIKK-CAKK) */}
-
-      {/* Sor 1: Kép balra - Szöveg jobbra */}
       <div className="content-row">
         <div className="image-placeholder">
           <img src="/kep1.jpg" alt="Színes papagájok" className="content-img" />
@@ -55,7 +49,6 @@ const MainPage = () => {
         </div>
       </div>
 
-      {/* Sor 2: Szöveg balra - Kép jobbra (REVERSE) */}
       <div className="content-row reverse">
         <div className="image-placeholder">
           <img src="/kep2.jpg" alt="Oktatás és felfedezés" className="content-img" />
@@ -68,7 +61,6 @@ const MainPage = () => {
         </div>
       </div>
 
-      {/* Sor 3: Kép balra - Szöveg jobbra */}
       <div className="content-row">
         <div className="image-placeholder">
           <img src="/kep3.jpg" alt="Családi kirándulás" className="content-img" />
@@ -81,7 +73,6 @@ const MainPage = () => {
         </div>
       </div>
 
-      {/* 5. FOOTER */}
       <footer className="footer">
         <p>© 2026 Kereki Madárkert - Minden jog fenntartva</p>
       </footer>

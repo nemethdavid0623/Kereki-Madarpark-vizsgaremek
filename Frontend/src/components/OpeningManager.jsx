@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useAuth } from './AuthContext'; // Feltételezve, hogy van AuthContext-ed a tokenhez
-import { Navigate } from 'react-router-dom';
+import { useAuth } from './AuthContext';
 
 const OpeningManager = () => {
     const { token } = useAuth();
     const [openings, setOpenings] = useState([]);
     const [loading, setLoading] = useState(true);
     const [message, setMessage] = useState('');
-    // Adatok betöltése az adatbázisból
     useEffect(() => {
         fetchOpenings();
     }, []);
@@ -24,14 +22,12 @@ const OpeningManager = () => {
         }
     };
 
-    // Egy adott nap módosítása a state-ben
     const handleChange = (id, field, value) => {
         setOpenings(prev => prev.map(item =>
             item.id === id ? { ...item, [field]: value } : item
         ));
     };
 
-    // Mentés a szerverre
     const handleSave = async (dayData) => {
         setMessage(`Mentés: ${dayData.day}...`);
         try {

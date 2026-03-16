@@ -12,6 +12,19 @@ const Animals = (props) => {
   const handleCardClick = () => {
     navigate(`/${props.id}`, { state: props });
   };
+
+  const handleImageLoad = (event) => {
+    const img = event.target;
+    const container = img.parentNode;
+    const containerRatio = container.offsetWidth / container.offsetHeight;
+    const imageRatio = img.naturalWidth / img.naturalHeight;
+
+    if (imageRatio > containerRatio) {
+      img.style.objectPosition = "20% center";
+    } else {
+      img.style.objectPosition = "center 15%";
+    }
+  };
   return (
     <div onClick={handleCardClick} className="animal-card">
       <div className="animal-img-placeholder">
@@ -20,6 +33,7 @@ const Animals = (props) => {
             src={imageUrl}
             alt={props.SpeciesName}
             className="animal-card-img"
+            onLoad={handleImageLoad}
             onError={(e) => {
               e.target.src = "https://via.placeholder.com/200?text=Hiba+a+betöltéskor";
             }}

@@ -3,8 +3,10 @@
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    width: 100%;
+    width: 900px;
     max-width: 900px;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .rules-header-banner {
@@ -14,8 +16,12 @@
     width: 100%;
     border: 3px solid #1a1a1a;
     border-radius: 20px;
-    padding: 10px 20px;
+    padding: 20px;
     font-family: 'Joti One', serif;
+    box-sizing: border-box;
+    box-shadow: 6px 6px 0px #1a1a1a;
+    font-size: 2rem;
+    text-shadow: 2px 2px 0px #1a1a1a;
 }
 
 .rules-text-container {
@@ -23,10 +29,25 @@
     color: white;
     width: 100%;
     min-height: 400px;
-    /* Hogy szép nagy legyen a doboz, mint a rajzon */
+    border: 3px solid #1a1a1a;
+    border-radius: 30px;
+    padding: 50px;
+    box-sizing: border-box;
+    box-shadow: 8px 8px 0px #1a1a1a;
+    outline: 2px dashed rgba(255, 255, 255, 0.25);
+    outline-offset: -20px;
+    background: linear-gradient(135deg, #4a773c 0%, #3d6332 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.rules-header-banner,
+.rules-text-container {
+    width: 100%;
+    background-color: #4a773c;
     border: 3px solid #1a1a1a;
     border-radius: 20px;
-    padding: 40px;
+    box-shadow: 6px 6px 0px #1a1a1a;
     box-sizing: border-box;
 }
 
@@ -45,9 +66,9 @@
     border-bottom: 2px dashed rgba(255, 255, 255, 0.15);
     display: flex;
     align-items: flex-start;
+    transition: all 0.3s ease;
 }
 
-/* Egy kis madár ikon minden pont elé */
 .rules-list li::before {
     content: "🦜";
     margin-right: 15px;
@@ -58,9 +79,7 @@
     border-bottom: none;
 }
 
-/* Hover effekt a pontokra */
 .rules-list li:hover {
     color: #ffeb3b;
-    transform: translateX(5px);
-    transition: all 0.3s ease;
+    transform: translateX(10px);
 }
