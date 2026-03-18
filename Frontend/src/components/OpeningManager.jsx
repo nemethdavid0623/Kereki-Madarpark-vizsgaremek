@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const OpeningManager = () => {
     const { token } = useAuth();
     const [openings, setOpenings] = useState([]);
     const [loading, setLoading] = useState(true);
     const [message, setMessage] = useState('');
+    const navigate=useNavigate()
     useEffect(() => {
         fetchOpenings();
     }, []);

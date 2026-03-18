@@ -29,7 +29,7 @@ const PriceOpening=()=>{
         </div>
       </div>
 
-      <div>
+      <div className="rules-text-container">
         <OpeningDisplay/>
       </div>
     </Layout>
