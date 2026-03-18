@@ -26,11 +26,9 @@ const PriceOpening=()=>{
               <li key={index}>{rule}</li>
             ))}
           </ul>
+          <OpeningDisplay/>
         </div>
-      </div>
-
-      <div className="rules-text-container">
-        <OpeningDisplay/>
+        
       </div>
     </Layout>
   );

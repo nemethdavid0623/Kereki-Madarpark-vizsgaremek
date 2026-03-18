@@ -1,0 +1,72 @@
+
+.opening-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.status-badge {
+    padding: 10px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+}
+
+.status-open {
+    background-color: #2ecc71;
+}
+
+.status-closed {
+    background-color: #e74c3c;
+}
+
+.opening-title {
+    text-align: center;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.opening-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.opening-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: #e8f6ef;
+    border-radius: 8px;
+    border-left: 4px solid #2ecc71;
+    font-weight: bold;
+    color: #27ae60;
+    transition: transform 0.2s;
+}
+
+.opening-card.closed {
+    background-color: #f8d7da;
+    border-left: 4px solid #e74c3c;
+    color: #c0392b;
+}
+
+.opening-card.today {
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+    border: 1px solid #2ecc71;
+    border-left-width: 6px;
+    transform: scale(1.02);
+}
+
+.day-name {
+    flex: 1;
+}
+
+.time-range {
+    font-weight: normal;
+}

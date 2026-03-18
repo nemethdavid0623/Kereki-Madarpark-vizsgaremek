@@ -267,6 +267,9 @@ const AnimalManager = () => {
                 ? "Módosítások mentése"
                 : "Állat rögzítése"}
           </button>
+          <button onClick={() => navigate("/admin")} style={styles.backBtn}>
+                Vissza
+            </button>
 
           {isEditMode && (
             <button
