@@ -1,0 +1,71 @@
+/* Header Kép */
+.header-img {
+    width: 100%;
+    height: auto;
+    border: var(--main-border);
+    border-radius: var(--radius);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Navigáció */
+.header-banner-nav {
+    background-color: var(--primary-green);
+    width: 100%;
+    padding: 12px 15px;
+    border: var(--main-border);
+    border-radius: 50px;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 15px;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-yellow);
+    transform: scale(1.1);
+}
+
+/* Footer */
+.footer {
+    background: rgba(74, 119, 60, 0.85);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    margin-top: 40px;
+    border: var(--main-border);
+    border-radius: var(--radius);
+    padding: 30px 20px;
+    color: white;
+    box-shadow: var(--shadow);
+    box-sizing: border-box;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-section h3 {
+    font-family: 'Joti One', serif;
+    color: var(--accent-yellow);
+    text-shadow: 2px 2px 0px var(--black);
+}
