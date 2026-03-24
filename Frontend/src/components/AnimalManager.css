@@ -1,5 +1,175 @@
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+.manager-container {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: rgba(18, 106, 24, 0.7);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    box-sizing: border-box;
+    font-family: 'Kalam', cursive;
+}
 
-body{
-    font-family: Kalam, serif;
+.manager-title {
+    text-align: center; 
+    color: white; 
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.manager-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.manager-row {
+    display: flex;
+    gap: 15px;
+}
+
+.manager-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.flex-2 { flex: 2; }
+.flex-1 { flex: 1; }
+
+.manager-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+}
+
+.manager-input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #000;
+    width: 100%;
+    box-sizing: border-box;
+    color: #000;
+    font-family: 'Kalam', cursive;
+    font-size: 16px;
+}
+
+.manager-textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.manager-gallery-grid {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+.manager-image-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.manager-thumbnail {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #eee;
+}
+
+.new-image {
+    border-color: #2ecc71;
+}
+
+.manager-delete-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.manager-file-input {
+    padding: 10px;
+    border: 2px dashed white;
+    border-radius: 8px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: 'Kalam', cursive;
+}
+
+.manager-btn {
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Kalam', cursive;
+    width: 100%;
+    color: black;
+}
+
+.manager-submit-btn {
+    background-color: #f6ff00;
+}
+
+.manager-submit-btn:hover:not(:disabled) {
+    background-color: #d4db00;
+    transform: translateY(-2px);
+}
+
+.manager-back-btn {
+    background-color: #dc3545;
+    color: white;
+    margin-top: 10px;
+}
+
+.manager-cancel-btn {
+    background-color: #95a5a6;
+    color: white;
+    margin-top: 10px;
+}
+
+.manager-hr {
+    border: 0;
+    border-top: 2px solid #000;
+    margin: 20px 0;
+}
+
+.manager-alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #d1ecf1;
+    color: #0c5460;
+    text-align: center;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .manager-row {
+        flex-direction: column;
+    }
+    
+    .manager-container {
+        margin: 10px;
+        padding: 20px;
+    }
 }

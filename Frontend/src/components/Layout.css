@@ -1,4 +1,4 @@
-/* Header Kép */
+
 .header-img {
     width: 100%;
     height: auto;
@@ -7,7 +7,7 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Navigáció */
+
 .header-banner-nav {
     background-color: var(--primary-green);
     width: 100%;
@@ -43,7 +43,7 @@
     transform: scale(1.1);
 }
 
-/* Footer */
+
 .footer {
     background: rgba(74, 119, 60, 0.85);
     backdrop-filter: blur(10px);

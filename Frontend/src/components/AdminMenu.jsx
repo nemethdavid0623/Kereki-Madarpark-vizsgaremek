@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
-import AnimalDelete from "./AnimalDelete";
 import '../components/AdminMenu.css';
 
 const AdminMenu = () => {
@@ -21,79 +20,39 @@ const AdminMenu = () => {
   };
 
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>Admin Vezérlőpult</h1>
-      <div style={styles.menuBox}>
-        <button onClick={() => navigate("/AnimalInput")} style={styles.menuBtn}>
+    <div className="admin-container">
+      <h1 className="admin-title">Admin Vezérlőpult</h1>
+      
+      <div className="admin-menu-box">
+        <button 
+          onClick={() => navigate("/AnimalInput")} 
+          className="admin-btn admin-menu-btn"
+        >
           Új állat rögzítése
         </button>
 
         <button
           onClick={() => navigate("/AnimalDelete")}
-          style={styles.menuBtn}
+          className="admin-btn admin-menu-btn"
         >
           Állomány kezelése (Szerk./Törlés)
         </button>
+
         <button
           onClick={() => navigate("/admin/openings")}
-          style={styles.menuBtn}
+          className="admin-btn admin-menu-btn"
         >
-          Nyitvatartási idő szerkeztése
+          Nyitvatartási idő szerkesztése
         </button>
 
-        <hr style={styles.hr} />
+        <hr className="admin-hr" />
 
-        <button onClick={handleLogout} style={styles.logoutBtn}>
+        <button onClick={handleLogout} className="admin-btn admin-logout-btn">
           Biztonságos Kijelentkezés
         </button>
       </div>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    padding: "50px 20px",
-    opacity: "100%",
-    textAlign: "center",
-    minHeight: "100vh",
-  },
-  title: { 
-    color: "white", 
-    marginBottom: "30px" 
-  },
-  menuBox: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "15px",
-    maxWidth: "300px",
-    margin: "0 auto",
-    padding: "20px",
-    backgroundColor: "rgba(18, 106, 24, 0.5)",
-    borderRadius: "10px",
-    boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
-  },
-  menuBtn: {
-    padding: "12px",
-    backgroundColor: "#f6ff00",
-    color: "black",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-    fontSize: "16px",
-    fontWeight: "bold",
-    transition: "0.3s",
-  },
-  logoutBtn: {
-    backgroundColor: "#e74c3c",
-    color: "black",
-    border: "none",
-    padding: "12px",
-    cursor: "pointer",
-    borderRadius: "5px",
-    fontWeight: "bold",
-  },
-  hr: { border: "0", borderTop: "1px solid #eee", margin: "10px 0" },
 };
 
 export default AdminMenu;

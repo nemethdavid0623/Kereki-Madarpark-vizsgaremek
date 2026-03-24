@@ -112,7 +112,7 @@ const AnimalManager = () => {
       });
 
       setMessage("Sikeres mentés!");
-      setTimeout(() => navigate("/AnimalDelete"), 2000);
+      setTimeout(() => navigate("/AnimalDelete"), 1500);
     } catch (err) {
       if (err.response?.data?.errors) setErrors(err.response.data.errors);
       setMessage("Hiba történt a mentés során!");
@@ -122,279 +122,174 @@ const AnimalManager = () => {
   };
 
   return (
-    <div style={styles.pageBackground}>
-      <div style={styles.container}>
-        <h2 style={styles.title}>
-          {isEditMode ? "Állat szerkesztése" : "Új állat rögzítése"}
-        </h2>
-        {message && <div style={styles.alert}>{message}</div>}
+    <div className="manager-container">
+      <h2 className="manager-title">
+        {isEditMode ? "Állat szerkesztése" : "Új állat rögzítése"}
+      </h2>
+      
+      {message && <div className="manager-alert">{message}</div>}
 
-        <form onSubmit={handleSubmit} style={styles.form}>
-          <div style={styles.row}>
-            <div style={{ flex: 2 }}>
-              <label style={styles.label}>Fajnév:</label>
-              <input
-                type="text"
-                name="SpeciesName"
-                value={animalData.SpeciesName}
-                onChange={handleInputChange}
-                style={styles.input}
-                required
-              />
-            </div>
-            <div style={{ flex: 1 }}>
-              <label style={styles.label}>Típus:</label>
-              <select
-                name="SpeciesID"
-                value={animalData.SpeciesID}
-                onChange={handleInputChange}
-                style={styles.input}
-              >
-                <option value="1">Madár</option>
-                <option value="2">Egyéb</option>
-              </select>
-            </div>
+      <form onSubmit={handleSubmit} className="manager-form">
+        <div className="manager-row">
+          <div className="manager-group flex-2">
+            <label className="manager-label">Fajnév:</label>
+            <input
+              type="text"
+              name="SpeciesName"
+              value={animalData.SpeciesName}
+              onChange={handleInputChange}
+              className="manager-input"
+              required
+            />
           </div>
-
-          <div style={styles.row}>
-            <div style={{ flex: 1 }}>
-              <label style={styles.label}>Összes db:</label>
-              <input
-                type="number"
-                name="Quantity"
-                value={animalData.Quantity}
-                onChange={handleInputChange}
-                style={styles.input}
-                required
-              />
-            </div>
-            <div style={{ flex: 1 }}>
-              <label style={styles.label}>Eladó db:</label>
-              <input
-                type="number"
-                name="ForSaleQuantity"
-                value={animalData.ForSaleQuantity}
-                onChange={handleInputChange}
-                style={styles.input}
-                required
-              />
-            </div>
+          <div className="manager-group flex-1">
+            <label className="manager-label">Típus:</label>
+            <select
+              name="SpeciesID"
+              value={animalData.SpeciesID}
+              onChange={handleInputChange}
+              className="manager-input"
+            >
+              <option value="1">Madár</option>
+              <option value="2">Egyéb</option>
+            </select>
           </div>
+        </div>
 
-          <label style={styles.label}>Rövid leírás:</label>
+        <div className="manager-row">
+          <div className="manager-group">
+            <label className="manager-label">Összes darab:</label>
+            <input
+              type="number"
+              name="Quantity"
+              value={animalData.Quantity}
+              onChange={handleInputChange}
+              className="manager-input"
+              required
+            />
+          </div>
+          <div className="manager-group">
+            <label className="manager-label">Eladó darab:</label>
+            <input
+              type="number"
+              name="ForSaleQuantity"
+              value={animalData.ForSaleQuantity}
+              onChange={handleInputChange}
+              className="manager-input"
+              required
+            />
+          </div>
+        </div>
+
+        <div className="manager-group">
+          <label className="manager-label">Rövid leírás:</label>
           <textarea
             name="Description"
             value={animalData.Description}
             onChange={handleInputChange}
-            style={{ ...styles.input, height: "80px" }}
+            className="manager-input manager-textarea"
             required
           />
+        </div>
 
-          <label style={styles.label}>További információk:</label>
+        <div className="manager-group">
+          <label className="manager-label">További információk:</label>
           <textarea
             name="More"
             value={animalData.More}
             onChange={handleInputChange}
-            style={{ ...styles.input, height: "80px" }}
+            className="manager-input manager-textarea"
             required
           />
+        </div>
 
-          <hr style={styles.hr} />
+        <hr className="manager-hr" />
 
-          {isEditMode && animalData.images.length > 0 && (
-            <div>
-              <label style={styles.label}>Szerveren lévő galéria:</label>
-              <div style={styles.galleryGrid}>
-                {animalData.images.map((img) => (
-                  <div key={img.ID || img.id} style={styles.imageWrapper}>
-                    <img
-                      src={`http://localhost:8000/storage/uploads/${img.ImageData}`}
-                      alt="old"
-                      style={styles.thumbnail}
-                    />
-                    <button
-                      type="button"
-                      onClick={() =>
-                        handleDeleteExistingImage(img.ID || img.id)
-                      }
-                      style={styles.deleteBadge}
-                    >
-                      X
-                    </button>
-                  </div>
-                ))}
-              </div>
+        {isEditMode && animalData.images.length > 0 && (
+          <div className="manager-group">
+            <label className="manager-label">Szerveren lévő galéria:</label>
+            <div className="manager-gallery-grid">
+              {animalData.images.map((img) => (
+                <div key={img.ID || img.id} className="manager-image-wrapper">
+                  <img
+                    src={`http://localhost:8000/storage/uploads/${img.ImageData}`}
+                    alt="existing"
+                    className="manager-thumbnail"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => handleDeleteExistingImage(img.ID || img.id)}
+                    className="manager-delete-badge"
+                    title="Kép törlése"
+                  >
+                    X
+                  </button>
+                </div>
+              ))}
             </div>
-          )}
+          </div>
+        )}
 
-          {selectedImages.length > 0 && (
-            <div style={{ marginTop: "15px" }}>
-              <label style={styles.label}>Új képek feltöltésre:</label>
-              <div style={styles.galleryGrid}>
-                {selectedImages.map((file, index) => (
-                  <div key={index} style={styles.imageWrapper}>
-                    <img
-                      src={URL.createObjectURL(file)}
-                      alt="new"
-                      style={{ ...styles.thumbnail, borderColor: "#2ecc71" }}
-                    />
-                    <button
-                      type="button"
-                      onClick={() => removeSelectedImage(index)}
-                      style={styles.deleteBadge}
-                    >
-                      X
-                    </button>
-                  </div>
-                ))}
-              </div>
+        {selectedImages.length > 0 && (
+          <div className="manager-group">
+            <label className="manager-label">Új képek feltöltésre:</label>
+            <div className="manager-gallery-grid">
+              {selectedImages.map((file, index) => (
+                <div key={index} className="manager-image-wrapper">
+                  <img
+                    src={URL.createObjectURL(file)}
+                    alt="new-preview"
+                    className="manager-thumbnail new-image"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => removeSelectedImage(index)}
+                    className="manager-delete-badge"
+                    title="Eltávolítás"
+                  >
+                    X
+                  </button>
+                </div>
+              ))}
             </div>
-          )}
+          </div>
+        )}
 
-          <label style={styles.label}>Képek hozzáadása:</label>
+        <div className="manager-group">
+          <label className="manager-label">Képek hozzáadása:</label>
           <input
             type="file"
             onChange={handleFileChange}
             accept="image/*"
             multiple
-            style={styles.fileInput}
+            className="manager-file-input"
           />
+        </div>
 
-          <button type="submit" disabled={loading} style={styles.submitBtn}>
-            {loading
-              ? "Mentés..."
-              : isEditMode
-                ? "Módosítások mentése"
-                : "Állat rögzítése"}
+        <button type="submit" disabled={loading} className="manager-btn manager-submit-btn">
+          {loading ? "Mentés folyamatban..." : isEditMode ? "Módosítások mentése" : "Állat rögzítése"}
+        </button>
+
+        <button 
+          type="button" 
+          onClick={() => navigate("/admin")} 
+          className="manager-btn manager-back-btn"
+        >
+          Mégse / Vissza
+        </button>
+
+        {isEditMode && (
+          <button
+            type="button"
+            onClick={() => navigate("/AnimalDelete")}
+            className="manager-btn manager-cancel-btn"
+          >
+            Vissza a kezeléshez
           </button>
-          <button onClick={() => navigate("/admin")} style={styles.backBtn}>
-                Vissza
-            </button>
-
-          {isEditMode && (
-            <button
-              type="button"
-              onClick={() => navigate("/AnimalDelete")}
-              style={styles.cancelBtn}
-            >
-              Módosítás elvetése
-            </button>
-          )}
-        </form>
-      </div>
+        )}
+      </form>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    maxWidth: "700px",
-    margin: "0 auto",
-    padding: "30px",
-    backgroundColor: "rgba(18, 106, 24, 0.5)",
-    borderRadius: "12px",
-    boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
-
-  },
-  title: { textAlign: "center", color: "white", marginBottom: "25px" },
-  form: { display: "flex", flexDirection: "column", gap: "15px" },
-  label: {
-    display: "block",
-    marginBottom: "3px",
-    fontWeight: "bold",
-    color: "white",
-    fontSize: "14px",
-  },
-  row: { display: "flex", gap: "15px", flexWrap: "wrap" },
-  input: {
-    padding: "12px",
-    borderRadius: "8px",
-    border: "2px solid black",
-    width: "100%",
-    boxSizing: "border-box",
-    color: "#000",
-  },
-  hr: { border: "0", borderTop: "2px solid #000000", margin: "20px 0" },
-  galleryGrid: {
-    display: "flex",
-    gap: "12px",
-    flexWrap: "wrap",
-    marginTop: "10px",
-  },
-  imageWrapper: { position: "relative", display: "inline-block" },
-  thumbnail: {
-    width: "100px",
-    height: "100px",
-    objectFit: "cover",
-    borderRadius: "8px",
-    border: "2px solid #eee",
-  },
-  deleteBadge: {
-    position: "absolute",
-    top: "-8px",
-    right: "-8px",
-    backgroundColor: "#e74c3c",
-    color: "white",
-    border: "none",
-    borderRadius: "50%",
-    width: "24px",
-    height: "24px",
-    cursor: "pointer",
-    fontWeight: "bold",
-    fontSize: "12px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  fileInput: {
-    padding: "10px",
-    border: "2px dashed white",
-    borderRadius: "8px",
-    width: "100%",
-    backgroundColor: "#f9f9f9",
-  },
-  submitBtn: {
-    marginTop: "20px",
-    padding: "15px",
-    backgroundColor: "#f6ff00",
-    color: "black",
-    border: "none",
-    borderRadius: "8px",
-    fontSize: "17px",
-    fontWeight: "bold",
-    cursor: "pointer",
-  },
-  cancelBtn: {
-    marginTop: "10px",
-    padding: "10px",
-    backgroundColor: "#95a5a6",
-    color: "white",
-    border: "none",
-    borderRadius: "8px",
-    cursor: "pointer",
-  },
-  alert: {
-    padding: "15px",
-    marginBottom: "20px",
-    borderRadius: "8px",
-    backgroundColor: "#d1ecf1",
-    color: "#0c5460",
-    textAlign: "center",
-  },
-  backBtn: {
-    backgroundColor: '#dc3545',
-    color: 'black',
-    border: 'none',
-    padding: '8px 15px',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    fontWeight: 'bold',
-    margin: "auto",
-    display: "flex",
-    marginTop: "2%",
-    justifyContent: "center",
-    width: "100%",
-  }
 };
 
 export default AnimalManager;
