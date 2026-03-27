@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Layout from "./Layout";
-import "./LargeCard.css"; // Importáljuk az új CSS-t
-
+import "./LargeCard.css";
 const LargeCard = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -11,7 +10,6 @@ const LargeCard = () => {
   const images = props.images || [];
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Itt használd a korábban megbeszélt IP címet a 127.0.0.1 helyett, ha kell!
   const BASE_URL = "http://127.0.0.1:8000/storage/uploads/";
 
   const nextSlide = () => {
@@ -25,7 +23,6 @@ const LargeCard = () => {
   return (
     <Layout>
       <div className="animal-card-container">
-        {/* Slideshow Rész */}
         <div className="slideshow-container">
           {images.length > 0 ? (
             <>
@@ -52,8 +49,6 @@ const LargeCard = () => {
             <div className="no-image-text">Nincs kép!</div>
           )}
         </div>
-
-        {/* Információs Rész */}
         <div className="animal-detail-info">
           <h2>{props.SpeciesName}</h2>
 

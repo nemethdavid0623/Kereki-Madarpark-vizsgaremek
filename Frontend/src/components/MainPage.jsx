@@ -76,7 +76,7 @@ const MainPage = () => {
 
       <footer className="footer">
         <div className="footer-content">
-          {/* Elérhetőségek oszlop */}
+
           <div className="footer-section">
             <h3>Kapcsolat</h3>
             <p><strong>Tulajdonosok:</strong> Rácz Sándor & Rácz Sándorné</p>
@@ -84,7 +84,6 @@ const MainPage = () => {
             <p><strong>E-mail:</strong> info@madarkert.hu</p>
           </div>
 
-          {/* Közösségi média oszlop */}
           <div className="footer-section">
             <h3>Kövessen minket</h3>
             <div className="social-links">
@@ -93,7 +92,6 @@ const MainPage = () => {
             </div>
           </div>
 
-          {/* Szponzorok oszlop */}
           <div className="footer-section">
             <h3>Támogatóink</h3>
             <div className="sponsor-logos">
@@ -106,7 +104,6 @@ const MainPage = () => {
         </div>
 
         <div className="footer-bottom">
-          <p>© 2026 Kereki Madárkert - Minden jog fenntartva</p>
         </div>
       </footer>
     </div>

@@ -104,12 +104,11 @@ class ImageController extends Controller
         $image = Image::find($id);
 
         if ($image) {
-            // 1. Törlés a mappából
+
             if (Storage::disk('public')->exists('uploads/' . $image->ImageData)) {
                 Storage::disk('public')->delete('uploads/' . $image->ImageData);
             }
 
-            // 2. Törlés az adatbázisból
             $image->delete();
 
             return response()->json(["success" => true, "message" => "Kép törölve!"], 200);

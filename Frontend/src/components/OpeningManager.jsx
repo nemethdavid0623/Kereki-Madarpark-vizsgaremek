@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
 import { useNavigate } from 'react-router-dom';
-import './OpeningManager.css'; // CSS importálása
+import './OpeningManager.css';
 
 const OpeningManager = () => {
     const { token } = useAuth();
@@ -55,6 +55,7 @@ const OpeningManager = () => {
             {message && <div className="manager-alert">{message}</div>}
 
             <div className="manager-table">
+                {/* Fejléc - Mobilnézetben a CSS elrejti */}
                 <div className="table-header">
                     <span>Nap</span>
                     <span>Nyitás</span>
@@ -65,44 +66,57 @@ const OpeningManager = () => {
 
                 {openings.map((item) => (
                     <div key={item.id} className="table-row">
-                        <span className="day-column">{item.day}</span>
+                        <div className="day-column">{item.day}</div>
 
-                        <input
-                            type="time"
-                            className="time-input"
-                            value={item.open_time || '00:00'}
-                            disabled={!!item.is_closed}
-                            onChange={(e) => handleChange(item.id, 'open_time', e.target.value)}
-                        />
-
-                        <input
-                            type="time"
-                            className="time-input"
-                            value={item.close_time || '00:00'}
-                            disabled={!!item.is_closed}
-                            onChange={(e) => handleChange(item.id, 'close_time', e.target.value)}
-                        />
-
-                        <label className="checkbox-label">
+                        <div data-label="Nyitás:">
                             <input
-                                type="checkbox"
-                                checked={!!item.is_closed}
-                                onChange={(e) => handleChange(item.id, 'is_closed', e.target.checked ? 1 : 0)}
+                                type="time"
+                                className="time-input"
+                                value={item.open_time || '00:00'}
+                                disabled={!!item.is_closed}
+                                onChange={(e) => handleChange(item.id, 'open_time', e.target.value)}
                             />
-                            {item.is_closed ? 'Zárva' : 'Nyitva'}
-                        </label>
+                        </div>
 
-                        <button 
-                            onClick={() => handleSave(item)} 
-                            className="save-btn"
-                        >
-                            Mentés
-                        </button>
+                        <div data-label="Zárás:">
+                            <input
+                                type="time"
+                                className="time-input"
+                                value={item.close_time || '00:00'}
+                                disabled={!!item.is_closed}
+                                onChange={(e) => handleChange(item.id, 'close_time', e.target.value)}
+                            />
+                        </div>
+
+                        <div data-label="Állapot:">
+                            <label className="checkbox-label">
+                                <input
+                                    type="checkbox"
+                                    checked={!!item.is_closed}
+                                    onChange={(e) => handleChange(item.id, 'is_closed', e.target.checked ? 1 : 0)}
+                                />
+                                {item.is_closed ? 'Zárva' : 'Nyitva'}
+                            </label>
+                        </div>
+
+                        <div>
+                            <button 
+                                type="button"
+                                onClick={() => handleSave(item)} 
+                                className="save-btn"
+                            >
+                                Mentés
+                            </button>
+                        </div>
                     </div>
                 ))}
             </div>
 
-            <button onClick={() => navigate("/admin")} className="back-btn">
+            <button 
+                type="button"
+                onClick={() => navigate("/admin")} 
+                className="back-btn"
+            >
                 Vissza az admin felületre
             </button>
         </div>

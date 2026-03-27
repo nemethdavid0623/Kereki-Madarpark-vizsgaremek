@@ -8,13 +8,12 @@ use Illuminate\Support\Facades\Validator;
 
 class OpeningController extends Controller
 {
-    // Összes nyitvatartási idő lekérése
+
     public function index()
     {
         return response()->json(Opening::all(), 200);
     }
 
-    // Egy adott nap frissítése
     public function update(Request $request, $id)
     {
         $opening = Opening::find($id);

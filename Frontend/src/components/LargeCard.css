@@ -1,4 +1,4 @@
-/* LargeCard.css */
+@import url('https://fonts.googleapis.com/css2?family=Joti+One&family=Kalam:wght@400;700&display=swap');
 
 .animal-card-container {
     background-color: var(--primary-green);
@@ -8,24 +8,29 @@
     overflow: hidden;
     width: 100%;
     margin-top: 20px;
+    box-sizing: border-box;
 }
 
 .slideshow-container {
     position: relative;
     width: 100%;
-    height: 500px;
+    /* Mobilon kisebb, asztalin nagyobb magasság */
+    height: clamp(250px, 50vh, 500px); 
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(42, 64, 34, 0.5);
     box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
     border-bottom: var(--main-border);
+    overflow: hidden;
 }
 
 .large-animal-img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: contain; /* Megtartja az arányokat torzítás nélkül */
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .nav-btn {
@@ -35,12 +40,15 @@
     background-color: rgba(26, 26, 26, 0.7);
     color: var(--accent-yellow);
     border: 2px solid var(--accent-yellow);
-    padding: 15px;
+    padding: clamp(10px, 2vw, 15px); /* Rugalmas méretű gombok */
     cursor: pointer;
     border-radius: 50%;
-    font-size: 20px;
+    font-size: clamp(16px, 3vw, 20px);
     transition: all 0.3s ease;
     z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-btn:hover {
@@ -49,42 +57,39 @@
     transform: translateY(-50%) scale(1.1);
 }
 
-.prev-btn {
-    left: 20px;
-}
-
-.next-btn {
-    right: 20px;
-}
+.prev-btn { left: clamp(5px, 2vw, 20px); }
+.next-btn { right: clamp(5px, 2vw, 20px); }
 
 .image-counter {
     position: absolute;
-    bottom: 20px;
+    bottom: 15px;
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
-    padding: 5px 15px;
+    padding: 5px 12px;
     border-radius: 15px;
-    font-size: 14px;
+    font-size: 0.9rem;
+    font-family: 'Kalam', cursive;
 }
 
 .animal-detail-info {
-    padding: 30px;
+    padding: clamp(15px, 5vw, 30px);
     color: white;
     text-align: center;
 }
 
 .animal-detail-info h2 {
     font-family: 'Joti One', serif;
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
     margin-bottom: 10px;
     text-shadow: 2px 2px 0px var(--black);
 }
 
 .detail-description {
-    font-size: 1.4rem;
-    line-height: 1.6;
-    margin: 20px 0;
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    line-height: 1.5;
+    margin: 15px 0;
     font-family: 'Kalam', cursive;
+    text-align: justify; /* Hosszabb szövegnél szebb */
 }
 
 .for-sale-badge {
@@ -94,8 +99,9 @@
     padding: 5px 15px;
     border-radius: 10px;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     border: 2px solid var(--black);
+    font-family: 'Kalam', cursive;
 }
 
 .back-to-animals-btn {
@@ -106,13 +112,32 @@
     border-radius: 15px;
     cursor: pointer;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     margin-top: 20px;
     transition: transform 0.2s;
     box-shadow: 4px 4px 0px var(--black);
+    font-family: 'Kalam', cursive;
+    width: auto;
+    max-width: 100%;
 }
 
 .back-to-animals-btn:hover {
     transform: translate(-2px, -2px);
     box-shadow: 6px 6px 0px var(--black);
+}
+
+
+@media (max-width: 480px) {
+    .nav-btn {
+        padding: 8px;
+        background-color: rgba(26, 26, 26, 0.5);
+    }
+    
+    .animal-detail-info {
+        padding: 15px;
+    }
+
+    .detail-description {
+        text-align: center;
+    }
 }
