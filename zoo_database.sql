@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2026. Feb 28. 15:17
+-- Létrehozás ideje: 2026. Ápr 17. 08:21
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -131,7 +131,11 @@ INSERT INTO `image` (`ID`, `ImageData`, `AnimalID`) VALUES
 (35, '1771779352_Rozsafeju Torpepapagaj.jpg', 20),
 (36, '1771779366_Bukazo Sas.jpg', 23),
 (37, '1771779383_Repulo Mokus.jpeg', 31),
-(38, '1771779405_Borzas Kacagojancsi.jpg', 25);
+(38, '1771779405_Borzas Kacagojancsi.jpg', 25),
+(39, '1776406541_hullamospap.jpg', 18),
+(40, '1776406541_hullamospapagaj.jpg', 18),
+(41, '1776406776_jacintkek.jpg', 22),
+(42, '1776406776_jacintkekara.jpg', 22);
 
 -- --------------------------------------------------------
 
@@ -477,7 +481,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT a táblához `image`
 --
 ALTER TABLE `image`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT a táblához `jobs`
@@ -507,7 +511,7 @@ ALTER TABLE `openings`
 -- AUTO_INCREMENT a táblához `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT a táblához `species`
