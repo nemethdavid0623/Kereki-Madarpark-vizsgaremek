@@ -127,7 +127,7 @@ class AnimalController extends Controller
             'SpeciesID'       => 'required|numeric',
             'images.*'        => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ], [
-            'images.*.image' => 'A feltöltött fájlok csak képek lehetnek!',
+            'images.*.image' => 'A fájlok csak képek lehetnek!',
             'images.*.max'   => 'Egy kép mérete sem lehet több 2MB-nál!'
         ]);
 
